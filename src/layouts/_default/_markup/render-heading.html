@@ -1,0 +1,7 @@
+{{/* Use Goldmark's provided .Anchor when available, else slugify .Text */}}
+{{ $id := cond (ne .Anchor "") .Anchor (anchorize .Text) }}
+
+<h{{ .Level }} id="{{ $id }}">
+  {{ .Text | safeHTML }}
+  <a class="header-anchor" href="#{{ $id }}" aria-label="Permalink">🔗</a>
+</h{{ .Level }}>

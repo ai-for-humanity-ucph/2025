@@ -1,0 +1,194 @@
+week36:
+  - date: "2025-09-03"
+    time: "10:00–12:00"
+    topic: "Introduction"
+    content: "Motivation + linear ML"
+    teachers: "Andreas"
+    material: "Introduction"
+
+  - date: "2025-09-04"
+    time: "15:00–17:00"
+    topic: "Introduction"
+    content: 
+    teachers: "Jonas"
+    material: <a href="../exercises/class-1">Class 1<a/>
+week37:
+  - date: "2025-09-10"
+    time: "10:00–12:00"
+    topic: "Foundations"
+    content: "Tree-based + Neural Nets"
+    teachers: "Jonas"
+    material: 
+
+  - date: "2025-09-11"
+    time: "15:00–17:00"
+    topic: "Foundations"
+    content: "Tree-based + Neural Nets"
+    teachers: "Jonas"
+    material: 
+
+week38:
+  - date: "2025-09-17"
+    time: "10:00–12:00"
+    topic: "Foundations"
+    content: "Language Models"
+    teachers: "Stephanie"
+    material: 
+
+  - date: "2025-09-18"
+    time: "15:00–17:00"
+    topic: "Foundations"
+    content: "Language Models"
+    teachers: "Jonas"
+    material: 
+week39:
+  - date: "2025-09-24"
+    time: "10:00–12:00"
+    topic: "Foundations"
+    content: "Transformers"
+    teachers: "Stephanie"
+    material:
+
+  - date: "2025-09-25"
+    time: "15:00–17:00"
+    topic: "Foundations"
+    content: "Transformers"
+    teachers: "Jonas"
+    material: 
+week40:
+  - date: "2025-10-01"
+    time: "10:00–12:00"
+    topic: "Foundations"
+    content: "Generative AI"
+    teachers: "Stephanie"
+    material: TBD
+
+  - date: "2025-10-02"
+    time: "15:00–17:00"
+    topic: "Foundations"
+    content: "Generative NLP-LLMs"
+    teachers: "Jonas"
+    material: 
+week41:
+  - date: "2025-10-01"
+    time: "10:00–12:00"
+    topic: "Foundations"
+    content: "LLMs"
+    teachers: "Stephanie"
+    material: TBD
+
+  - date: "2025-10-02"
+    time: "15:00–17:00"
+    topic: "Foundations"
+    content: "LLMs"
+    teachers: "Jonas"
+    material: 
+
+week42:
+  - date: Fall break
+
+week43:
+  - date: "2025-10-22"
+    time: "10:00–12:00"
+    topic: "Policy"
+    content: "Fairness"
+    teachers: "Stephanie"
+    material: TBD
+
+  - date: "2025-10-23"
+    time: "15:00–17:00"
+    topic: "Policy"
+    content: "Fairness"
+    teachers: "Jonas"
+    material: 
+week44:
+  - date: "2025-10-29"
+    time: "10:00–12:00"
+    topic: "Policy"
+    content: "Prediction policy"
+    teachers: "Andreas"
+    material: 
+  - date: "2025-10-30"
+    time: "15:00–17:00"
+    topic: "Policy"
+    content: "Prediction policy"
+    teachers: "Jonas"
+    material: 
+week45:
+  - date: "2025-11-05"
+    time: "10:00–12:00"
+    topic: "Policy"
+    content: "AI for policy - other uses"
+    teachers: "Andreas"
+    material: 
+  - date: "2025-11-06"
+    time: "15:00–17:00"
+    topic: "Policy"
+    content: "AI for policy - other uses"
+    teachers: "Jonas"
+    material: 
+week46:
+  - date: "2025-11-12"
+    time: "10:00–12:00"
+    topic: "Econ ML"
+    content: "Causal machine learning"
+    teachers: "Andreas"
+    material: 
+  - date: "2025-11-13"
+    time: "15:00–17:00"
+    topic: "Econ ML"
+    content: "Causal machine learning"
+    teachers: "Jonas"
+    material: 
+week47:
+  - date: "2025-11-19"
+    time: "10:00–12:00"
+    topic: "Econ ML"
+    content: "Double ML"
+    teachers: "Jonas"
+    material: 
+  - date: "2025-11-20"
+    time: "15:00–17:00"
+    topic: "Econ ML"
+    content: "Double ML"
+    teachers: "Jonas"
+    material: 
+week48:
+  - date: "2025-11-26"
+    time: "10:00–12:00"
+    topic: "Econ ML"
+    content: "Double ML"
+    teachers: "Jonas"
+    material: 
+  - date: "2025-11-27"
+    time: "15:00–17:00"
+    topic: "Econ ML"
+    content: "Double ML"
+    teachers: "Jonas"
+    material: 
+week49:
+  - date: "2025-12-03"
+    time: "10:00–12:00"
+    topic: "Econ ML / policy"
+    content: "Applied evaluation of use (Misra etc.)"
+    teachers: "Andreas"
+    material: 
+  - date: "2025-12-04"
+    time: "15:00–17:00"
+    topic: "Econ ML / policy"
+    content: "Applied evaluation of use (Misra etc.)"
+    teachers: "Jonas"
+    material: 
+week50:
+  - date: "2025-12-10"
+    time: "10:00–12:00"
+    topic: "Outro / Questions"
+    content: ""
+    teachers: "Joint"
+    material: 
+  - date: "2025-12-11"
+    time: "15:00–17:00"
+    topic: "Outro / Questions"
+    content: ""
+    teachers: "Joint"
+    material: 

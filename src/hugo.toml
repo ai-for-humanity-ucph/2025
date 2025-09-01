@@ -1,0 +1,29 @@
+baseURL = "https://ai-for-humanity-ucph.github.io/2025/"
+languageCode = 'en-us'
+title = "AI for Humanity"
+theme = "beautifulhugo"
+
+publishDir = "../docs"
+
+[params]
+  homeTitle = "AI for Humanity 2025"
+  logo = "img/ku_logo_uk_v.png"
+  favicon = "img/favicon.ico"
+  dateFormat = "January 2, 2006"
+
+[menus]
+  [[menus.main]]
+    name = 'Home'
+    pageRef = '/'
+    weight = 10
+  [[menus.main]]
+    name = 'Schedule'
+    pageRef = '/schedule/'
+    weight = 20
+  [[menus.main]]
+    name = 'Readings'
+    pageRef = '/readings/'
+    weight = 30
+#
+# [markup.goldmark.renderer]
+# unsafe = true   # for header anchors

@@ -1,0 +1,23 @@
+/* Anchors hidden by default */
+.header-anchor {
+  visibility: hidden;
+  text-decoration: none;
+  margin-left: 0.4em;
+  font-size: 0.85em;
+  opacity: 0.6;
+}
+
+/* Reveal when the heading is hovered */
+h1:hover .header-anchor,
+h2:hover .header-anchor,
+h3:hover .header-anchor,
+h4:hover .header-anchor,
+h5:hover .header-anchor,
+h6:hover .header-anchor {
+  visibility: visible;
+}
+
+/* Make the icon slightly brighter on direct hover */
+.header-anchor:hover {
+  opacity: 1;
+}

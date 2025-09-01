@@ -1,0 +1,30 @@
+<div class="timeplan-wrapper">
+  <table class="timeplan-table">
+    <thead class="timeplan-header">
+      <tr>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Topic</th>
+        <th>Content</th>
+        <th>Teachers</th>
+        <th>Material</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{ range $weekKey, $sessions := .Site.Data.schedule }}
+      <tr class="timeplan-week">
+        <td colspan="6">{{ replace $weekKey "week" "Week " | title }}</td>
+      </tr>
+      {{ range $sessions }}
+      <tr>
+        <td class="nowrap">{{ .date }}</td>
+        <td class="nowrap" style="text-align: right">{{ .time }}</td>
+        <td data-label="Topic">{{ .topic | safeHTML }}</td>
+        <td data-label="Content">{{ .content | safeHTML }}</td>
+        <td data-label="Teachers">{{ .teachers }}</td>
+        <td data-label="Material">{{ .material | safeHTML }}</td>
+      </tr>
+      {{ end }} {{ end }}
+    </tbody>
+  </table>
+</div>
