@@ -27,7 +27,7 @@ title = 'Readings'
 - [Yu, F. et al., 2024. Heterogeneity and predictors of the effects of AI assistance on radiologists. *Nature Medicine*, 30(3), pp.837-849.](https://doi.org/10.1038/s41591-024-02850-w)
 - [Grimon, M-P. and Mills, C., 2025. Better Together? A field experiment on human-algorithm interaction in child protection. *arXiv preprint* arXiv:2502.08501.](https://doi.org/10.48550/arXiv.2502.08501)
 - [Argyle, L.P., Busby, E.C., Gubler, J.R., et al., 2025. Testing theories of political persuasion using AI. *Proceedings of the National Academy of Sciences*, 122(18), e2412815122.](https://doi.org/10.1073/pnas.2412815122)
-- [Dubova, M., Chandramouli, S., Gigerenzer, G., Grünwald, P., Holmes, W., Lombrozo, T., Marelli, M., Musslick, S., Nicenboim, B., Ross, L.N., Shiffrin, R., White, M., Wagenmakers, E-J., Bürkner, P-C. and Sloman, S.J., 2025. Is Ockham’s razor losing its edge? New perspectives on the principle of model parsimony. *Proceedings of the National Academy of Sciences*, 122(5), e2401230121.](https://doi.org/10.1073/pnas.2401230121)
+- [Kleinberg, J., Lakkaraju, H., Leskovec, J., Ludwig, J. and Mullainathan, S., 2018. Human decisions and machine predictions. The quarterly journal of economics, 133(1), pp.237-293.](https://doi.org/10.1093/qje/qjx032)
 
 ##### Basic and linear machine learning
 
