@@ -17,8 +17,8 @@
       </tr>
       {{ range $sessions }}
       <tr>
-        <td class="nowrap">{{ .date }}</td>
-        <td class="nowrap" style="text-align: right">{{ .time }}</td>
+        <td data-label="Date" class="nowrap">{{ .date }}</td>
+        <td data-label="Time" class="nowrap">{{ .time }}</td>
         <td data-label="Topic">{{ .topic | safeHTML }}</td>
         <td data-label="Content">{{ .content | safeHTML }}</td>
         <td data-label="Teachers">{{ .teachers }}</td>
