@@ -4,7 +4,7 @@ week36:
     topic: "Introduction"
     content: "Motivation + linear ML"
     teachers: "Andreas"
-    material: "Introduction"
+    material: <a href="https://github.com/ai-for-humanity-ucph/2025/blob/main/teaching-material/1/lecture-1.pdf">Slides<a/>
 
   - date: "2025-09-04"
     time: "15:00–17:00"
