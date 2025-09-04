@@ -46,11 +46,11 @@ ML to uncover new data sources for social science
 
 #### Week 37
 
-<!-- - Michael A. Nielsen, "Neural Networks and Deep Learning", Determination Press, 2015 -->
-<!--   - Available online [here](http://neuralnetworksanddeeplearning.com/) -->
-<!-- - Chapter 9.2 in The Elements of Statistical Learning (II) -->
-<!--   - Book avaiable [here](https://hastie.su.domains/ElemStatLearn/) -->
-<!---->
+- Michael A. Nielsen, "Neural Networks and Deep Learning", Determination Press, 2015
+  - Available online [here](http://neuralnetworksanddeeplearning.com/)
+- Chapter 11.1-11.8 in [ESLII](#eslii)
+- Chapter 9.3 in [Causal ML Book](#causalmlbook)
+- [A Gentle Introduction to torch.autograd](https://docs.pytorch.org/tutorials/beginner/blitz/autograd_tutorial.html)
 
 #### Week 38
 
@@ -109,7 +109,7 @@ Causal trees and forests
 #### Week 47
 
 - [An Introduction to Double/Debiased Machine Learning](https://arxiv.org/abs/2504.08324)
-- Causal ML Book (available [here](https://causalml-book.org/))
+- [Causal ML Book](#causalmlbook)
 
 #### Week 48
 
@@ -119,8 +119,13 @@ Causal trees and forests
 
 ## Books
 
-- ESL: [Hastie, T., Tibshirani, R. and Friedman, J., 2009. The elements of statistical learning. Spring Series in Statistics](https://link.springer.com/content/pdf/10.1007/978-0-387-84858-7.pdf)
 - Angrist, J. D., and Pischke, J. S. (2008). Mostly harmless econometrics: An empiricist's companion. Princeton university press.
+
+### ESLII
+
+- ESLII: [Hastie, T., Tibshirani, R. and Friedman, J., 2009. The elements of statistical learning. Spring Series in Statistics](https://link.springer.com/content/pdf/10.1007/978-0-387-84858-7.pdf)
+
+### CausalMLBook
 
 - [Causal ML book](https://causalml-book.org/)
 
