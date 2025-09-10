@@ -623,13 +623,12 @@ R(t) \geq R(t_{L}) + R(t_{R}).
 </section>
 <section class="slide level2">
 
-<h3 id="from-trees-to-networks">From Trees to Networks</h3>
+<h3 id="trees-and-forests">Trees and Forests</h3>
 <ul>
 <li>Enough with the trees and flowers
 <ul>
 <li>Although if you haven’t already, go visit <a href="https://plen.ku.dk/pfv/haven/">Landbohøjskolens Have</a>; 10/10</li>
 </ul></li>
-<li>Let’s consider Neural Networks</li>
 </ul>
 </section>
 <section id="neural-networks" class="slide level2">
@@ -654,7 +653,7 @@ R(t) \geq R(t_{L}) + R(t_{R}).
 </ul>
 
 <img data-src="figs2/mnist.png" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"><ul>
-<li>We reshape the pixel matrices into <span class="math inline">\(28 \cdot 28 = 784\)</span>-dimensional vectors, <span class="math inline">\(x_{i} \in \mathbb{R}^{784 \times 1}\)</span></li>
+<li>We reshape the pixel matrices into <span class="math inline">\(28 \cdot 28 = 784\)</span>-dimensional vectors, <span class="math inline">\(x_{i} \in \mathbb{R}^{784 \times 1}\)</span>; also, we divide them by <span class="math inline">\(255\)</span></li>
 <li>We one-hot encode the labels <span class="math inline">\(y_{i} \in \{0, 1\}^{10 \times 1}\)</span> (with a <span class="math inline">\(1\)</span> at the index corresponding to the true label and <span class="math inline">\(0\)</span> elsewhere)</li>
 <li>Our goal is to estimate a neural network (think of it as a complex non-linear statistical model) to correctly predict the class labels</li>
 </ul>
@@ -831,7 +830,11 @@ a^{l}_{j}
               = \frac{\partial \ell}{\partial \hat{y}}
               \frac{\partial \hat{y}}{\partial z^{l_{2}}}
               = y - \hat{y}.
-\end{aligned}\]</span></li>
+\end{aligned}\]</span>
+<ul>
+<li><span class="math inline">\(\frac{\partial \ell}{\partial \hat{y}}\)</span> the derivative of cross-entropy loss wrt. predicted probabilities</li>
+<li><span class="math inline">\(\frac{\partial \hat{y}}{\partial z^{l_{2}}}\)</span> the derivative of softmax function wrt. input vector</li>
+</ul></li>
 <li>Then we compute the derivatives: <span class="math display">\[\begin{aligned}
               \frac{\partial \ell}{\partial b^{l_{2}}} = \delta^{l_{2}},
               \quad
@@ -845,12 +848,12 @@ a^{l}_{j}
 
 <h3 id="backpropagation---example-continued">Backpropagation - example continued</h3>
 <ul>
-<li><p>Next, we backpropagate the errors to the first layer: <span class="math display">\[\begin{aligned}
+<li><p>Next, we <em>backpropagate</em> the errors to the first layer: <span class="math display">\[\begin{aligned}
               \delta^{l_{1}}
               = [(W^{l_{2}})^{T} \delta^{l_{2}}] \odot \sigma'(z^{l_{1}})
               = [(W^{l_{2}})^{T} \delta^{l_{2}}]
               \odot (\sigma(z^{l_{1}}) \odot [\iota - \sigma(z^{l_{1}})])
-\end{aligned}\]</span> where <span class="math inline">\(\iota\)</span> a vector of ones and then update the weights in the first layer with the derivatives: <span class="math display">\[\begin{aligned}
+\end{aligned}\]</span> where <span class="math inline">\(\iota\)</span> a vector of ones and we used the derivative of the sigmoid function (e.g.&nbsp;equation (4) last <a href="https://ai-for-humanity-ucph.github.io/2025/exercises/class-1/#exercise-5---logistic-regression---theory">week</a>) and then update the weights in the first layer with the derivatives: <span class="math display">\[\begin{aligned}
               \frac{\partial \ell}{\partial b^{l_{1}}} = \delta^{l_{1}},
               \quad
               \frac{\partial \ell}{\partial W^{l_{2}}} = \delta^{l_{1}}(a^{l_{0}})^{T}
@@ -862,10 +865,12 @@ a^{l}_{j}
 
 <h3 id="backpropagation---code-example">Backpropagation - code example</h3>
 <ul>
-<li><p>go through backprop in function <code>example_lecture</code> in <code>scripts/estimate_network_mn_rw.py</code></p></li>
-<li><p>torch example: automatic differentitation</p>
+<li>go through backprop in function <code>example_lecture</code> in <code>scripts/estimate_network_mn.py</code></li>
+<li>see code <a href="https://github.com/ai-for-humanity-ucph/2025/blob/main/code/lecture-2/estimate_network_mn.py">here</a></li>
+<li>torch example: automatic differentiation
 <ul>
 <li><code>scripts/estimate_network_torch.py</code></li>
+<li>have to implement yourself at exercise class</li>
 </ul></li>
 </ul>
 </section>
@@ -877,7 +882,6 @@ a^{l}_{j}
 <ul>
 <li>Inefficient</li>
 <li>Can pass <span class="math inline">\((B, 784)\)</span> matrices of batches through the network and backprop at once</li>
-<li>You will do that in the exercise class</li>
 </ul></li>
 <li>Regularization
 <ul>
@@ -886,7 +890,7 @@ a^{l}_{j}
 </ul></li>
 <li>Weight initialization</li>
 <li>More…</li>
-<li>We’ll return to it</li>
+<li>We’ll probably return to it</li>
 </ul>
 </section>
 <section id="wrap-up" class="slide level2">
