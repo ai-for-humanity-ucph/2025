@@ -18,7 +18,9 @@ week37:
     topic: "Foundations"
     content: "Tree-based + Neural Nets"
     teachers: "Jonas"
-    material: <a href="../slides/lecture-2">Slides<a/>
+    material: 
+        <li><a href="../slides/lecture-2">html</a></li>
+        <li><a href="https://github.com/ai-for-humanity-ucph/2025/blob/main/teaching-material/2/lecture-2.pdf">pdf</a></li>
 
   - date: "2025-09-11"
     time: "15:00–17:00"
