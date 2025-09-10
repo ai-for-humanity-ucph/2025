@@ -7,6 +7,9 @@ This page contains a schedule of the teaching sessions.
 Materials will be added as the course progresses.
 The lectures readings are available [here](../readings).
 
+Code exercise solutions are available
+[here](https://github.com/ai-for-humanity-ucph/2025-exercises).
+
 ---
 
 {{< schedule >}}
