@@ -51,6 +51,7 @@ ML to uncover new data sources for social science
 - Chapter 11.1-11.8 in [ESLII](#eslii)
 - Chapter 9.3 in [Causal ML Book](#causalmlbook)
 - [A Gentle Introduction to torch.autograd](https://docs.pytorch.org/tutorials/beginner/blitz/autograd_tutorial.html)
+- 11.1-11.3 [here](https://online.stat.psu.edu/stat857/node/22/)
 
 #### Week 38
 
