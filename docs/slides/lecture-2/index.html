@@ -563,6 +563,9 @@ R(t) \geq R(t_{L}) + R(t_{R}).
 <section class="slide level2">
 
 <h3 id="the-running-example">The running example</h3>
+<ul>
+<li>See code <a href="https://github.com/ai-for-humanity-ucph/2025/blob/main/code/lecture-2/decision_tree_example.py">here</a></li>
+</ul>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href=""></a><span class="im">from</span> sklearn.datasets <span class="im">import</span> load_iris</span>
 <span id="cb4-2"><a href=""></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
 <span id="cb4-3"><a href=""></a><span class="im">from</span> sklearn.tree <span class="im">import</span> DecisionTreeClassifier, plot_tree</span>
@@ -689,7 +692,8 @@ a^{l}_{j}
 
 <h3 id="loss-function">Loss function</h3>
 <ul>
-<li>To measure whether our predictions are correct we need a <em>loss function</em> Let <span class="math inline">\(\hat{y} \in \mathbb{R}^{10 \times 1}\)</span> be the predictions from our neural network model based on input <span class="math inline">\(x\)</span>
+<li>To measure whether our predictions are correct we need a <em>loss function</em></li>
+<li>Let <span class="math inline">\(\hat{y} \in \mathbb{R}^{10 \times 1}\)</span> be the predictions from our neural network model based on input <span class="math inline">\(x\)</span>
 <ul>
 <li>They are predicted probabilities of being in each of the <span class="math inline">\(10\)</span> classes</li>
 </ul></li>
@@ -697,14 +701,24 @@ a^{l}_{j}
 </ul>
 <p><span class="math display">\[\ell := \text{CE}(y, \hat{y}) := -\sum_{j=1}^{10} y_j \log \hat{y}_j\]</span></p>
 <ul>
-<li>We want to <em>minimize</em> this function
-<ul>
-<li>Note: only one term in the sum is non-zero; also, <span class="math inline">\(\hat{y}_{j} \in (0, 1)\)</span> so <span class="math inline">\(\log \hat{y}_{j} \in (-\infty, 0)\)</span></li>
-</ul></li>
 <li>For a sample of <span class="math inline">\(n\)</span> observations the loss is:</li>
 </ul>
 <p><span class="math display">\[\mathcal{L} :=
 -\frac{1}{n}\sum_{i=1}^{n}\sum_{j=1}^{10} y_{i, j} \log \hat{y}_{i, j}\]</span></p>
+</section>
+<section class="slide level2">
+
+<h3 id="loss-function---intuition">Loss function - Intuition</h3>
+<p>Again:</p>
+<p><span class="math display">\[\ell = -\sum_{j=1}^{10} y_j \log \hat{y}_j\]</span></p>
+<ul>
+<li>We want to <em>minimize</em> this function; note:
+<ul>
+<li>Only one term in the sum is non-zero, the one corresponding to the true label, <span class="math inline">\(j\)</span>, say</li>
+<li>Also, <span class="math inline">\(\hat{y}_{j} \in (0, 1)\)</span> so <span class="math inline">\(\log \hat{y}_{j} \in (-\infty, 0)\)</span> and <span class="math inline">\(-\log \hat{y}_{j} \in (0, \infty)\)</span></li>
+<li>To minimize <span class="math inline">\(-\log \hat{y}_{j}\)</span> we want <span class="math inline">\(\hat{y}_{j}\)</span> as close to <span class="math inline">\(1\)</span> as possible; i.e.&nbsp;we want our model to have as high a predicted probability for the <em>true</em> class as possible</li>
+</ul></li>
+</ul>
 </section>
 <section class="slide level2">
 
@@ -829,7 +843,7 @@ a^{l}_{j}
               = \frac{\partial \ell}{\partial z^{l_{2}}}
               = \frac{\partial \ell}{\partial \hat{y}}
               \frac{\partial \hat{y}}{\partial z^{l_{2}}}
-              = y - \hat{y}.
+              = \hat{y} - y.
 \end{aligned}\]</span>
 <ul>
 <li><span class="math inline">\(\frac{\partial \ell}{\partial \hat{y}}\)</span> the derivative of cross-entropy loss wrt. predicted probabilities</li>
