@@ -27,7 +27,7 @@ week37:
     topic: "Foundations"
     content: "Tree-based + Neural Nets"
     teachers: "Jonas"
-    material: 
+    material: <a href="../exercises/class-2">Class 2<a/>
 
 week38:
   - date: "2025-09-17"
