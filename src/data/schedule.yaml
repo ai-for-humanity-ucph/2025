@@ -35,7 +35,7 @@ week38:
     topic: "Foundations"
     content: "Language Models"
     teachers: "Stephanie"
-    material: 
+    material: <a href="https://github.com/ai-for-humanity-ucph/2025/blob/main/teaching-material/3/lecture-3.pdf">Slides</a>
 
   - date: "2025-09-18"
     time: "15:00–17:00"
