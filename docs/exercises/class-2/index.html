@@ -243,7 +243,7 @@ tests/test_network.py</code></pre>
 <span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>   ...</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>This corresponds to the one defined in <a href="https://ai-for-humanity-ucph.github.io/2025/slides/lecture-2/#/14">this</a> slide.</p>
 <blockquote class="blockquote">
-<p>Note: The type hint <code>Callable[[NDArray], float] = gini</code> for the <code>impurity_fn</code> argument means that <code>impurity_fn</code> is a function taking a numpy (with any values) and returning a single <code>float</code>; and that its default value is the <code>gini</code> function defined in the previous exercise. See also <a href="https://docs.python.org/3/library/typing.html#annotating-callables">here</a>.</p>
+<p>Note: The type hint <code>Callable[[NDArray], float] = gini</code> for the <code>impurity_fn</code> argument means that <code>impurity_fn</code> is a function taking a numpy array (with any values) and returning a single <code>float</code>; and that its default value is the <code>gini</code> function defined in the previous exercise. See also <a href="https://docs.python.org/3/library/typing.html#annotating-callables">here</a>.</p>
 </blockquote>
 <p>Test it with:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pytest</span> tests/test_tree.py <span class="at">-k</span> test_goodness_split</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
@@ -567,14 +567,14 @@ tests/test_network.py</code></pre>
 <span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.b_1 <span class="op">=</span> np.zeros((_, _))</span>
 <span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.W_2 <span class="op">=</span> rng.normal(<span class="dv">0</span>, <span class="fl">0.1</span>, size<span class="op">=</span>(_, _))</span>
 <span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.b_2 <span class="op">=</span> np.zeros((_, _))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Replace the placeholders <code>_</code> with the correct dimensions cf.&nbsp;the example of the slides <a href="https://ai-for-humanity-ucph.github.io/2025/slides/lecture-2/#/34">here</a>.</p></li>
+<p>Replace the placeholders <code>_</code> with the correct dimensions cf.&nbsp;the example of the slides <a href="https://ai-for-humanity-ucph.github.io/2025/slides/lecture-2/#/35">here</a>.</p></li>
 <li><p>Implement a method <code>train_step</code> that does a forward pass and then does backpropagation. It should have the following signature:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> train_step(</span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>,</span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>        x: NDArray,</span>
 <span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>        y: NDArray,</span>
 <span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>    ) <span class="op">-&gt;</span> <span class="bu">tuple</span>[<span class="bu">float</span>, NDArray, NDArray, NDArray, NDArray]:</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>It returns the loss and gradients for a single input example <code>x, y</code> i.e.&nbsp;it it should have as return statement: <code>return loss, dW1, db1, dW2, db2</code>. Get guidance from the <a href="https://ai-for-humanity-ucph.github.io/2025/slides/lecture-2/#/40">lecture</a>.</p>
+<p>It returns the loss and gradients for a single input example <code>x, y</code> i.e.&nbsp;it it should have as return statement: <code>return loss, dW1, db1, dW2, db2</code>. Get guidance from the <a href="https://ai-for-humanity-ucph.github.io/2025/slides/lecture-2/#/41">lecture</a>.</p>
 <p>You can use the following helper functions:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> sigmoid(z: NDArray):</span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""The sigmoid function."""</span></span>
@@ -612,7 +612,7 @@ tests/test_network.py</code></pre>
 <section id="optional-exercise-5---neural-network-theory" class="level3">
 <h3 class="anchored" data-anchor-id="optional-exercise-5---neural-network-theory">Optional: Exercise 5 - Neural Network theory</h3>
 <ol type="1">
-<li><p>Prove the following about the <a href="https://ai-for-humanity-ucph.github.io/2025/slides/lecture-2/#/33">softmax</a> function:</p>
+<li><p>Prove the following about the <a href="https://ai-for-humanity-ucph.github.io/2025/slides/lecture-2/#/34">softmax</a> function:</p>
 <p>For any coordinates <span class="math inline">\(i, k \in \{1,\dots,K\}\)</span>: <span class="math display">\[
   \frac{\partial \mathrm{sm}(z)_i}{\partial z_k}
   = \mathrm{sm}(z)_i \, [\delta_{ik} - \mathrm{sm}(z)_k],
