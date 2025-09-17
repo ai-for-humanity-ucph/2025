@@ -42,7 +42,7 @@ week38:
     topic: "Foundations"
     content: "Language Models"
     teachers: "Jonas"
-    material: 
+    material: <a href="../exercises/class-3">Class 3<a/>
 week39:
   - date: "2025-09-24"
     time: "10:00–12:00"
