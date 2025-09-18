@@ -157,7 +157,10 @@ window.Quarto = {
 <p>The following exercise is on word embeddings. We will use a small version of the <code>GloVe</code> embeddings. We choose those over the vanilla <code>Word2Vec</code> embeddings as the file size is smaller and they are easier to download. There are two tests for the following exercises <a href="https://github.com/ai-for-humanity-ucph/2025-exercises/tree/tests?tab=readme-ov-file">here</a>.</p>
 <ol type="1">
 <li><p>Download a set of <code>GloVe</code> embeddings from <a href="https://nlp.stanford.edu/projects/glove/">here</a>. Choose the smallest file <code>glove.2024.wikigiga.50d.zip</code> (290 MB download size) on the website. Unpack the zip file to the <code>data</code> directory in your project directory. You should now have following file in your <code>data</code> folder:</p>
-<pre><code>wiki_giga_2024_50_MFT20_vectors_seed_123_alpha_0.75_eta_0.075_combined.txt</code></pre></li>
+<pre><code>wiki_giga_2024_50_MFT20_vectors_seed_123_alpha_0.75_eta_0.075_combined.txt</code></pre>
+<blockquote class="blockquote">
+<p>Note: if the download link doesn’t work we have also uploaded the zip file <code>glove.2024.wikigiga.50d.zip</code> to Absalon under <code>Files</code> in the folder <code>data</code> that you can download instead.</p>
+</blockquote></li>
 <li><p>Make a file called <code>src/ai4h/models/embeddings.py</code> i.e.&nbsp;a new module for code related to embeddings.</p></li>
 <li><p>Insert the following function in your new module:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
