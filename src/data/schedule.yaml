@@ -72,14 +72,14 @@ week40:
     teachers: "Jonas"
     material: 
 week41:
-  - date: "2025-10-01"
+  - date: "2025-10-08"
     time: "10:00–12:00"
     topic: "Foundations"
     content: "LLMs"
     teachers: "Stephanie"
     material: TBD
 
-  - date: "2025-10-02"
+  - date: "2025-10-09"
     time: "15:00–17:00"
     topic: "Foundations"
     content: "LLMs"
