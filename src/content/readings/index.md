@@ -55,7 +55,7 @@ ML to uncover new data sources for social science
 
 #### Week 38
 
-The lectures for week 38-41 are mainly based on [Speech and Language
+The lectures for week 38-41 are mainly based on Chapters 3, 4, 9 - 12 from [Speech and Language
 Processing, 2025 by Jurafsky &
 Martin](https://web.stanford.edu/~jurafsky/slp3/).
 
