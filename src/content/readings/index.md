@@ -55,15 +55,19 @@ ML to uncover new data sources for social science
 
 #### Week 38
 
-The lectures for week 38-41 are mainly based on Chapters 3, 6, 9 - 12 from [Speech and Language
+- Chapters [3](https://web.stanford.edu/~jurafsky/slp3/old_jan25/3.pdf) and [6](https://web.stanford.edu/~jurafsky/slp3/old_jan25/6.pdf) 
+from `Speech and Language
 Processing, 2025 by Jurafsky &
-Martin](https://web.stanford.edu/~jurafsky/slp3/).
+Martin`, :warning: edition from January 2025
 
 - Mikolov et al. (2013) [a](https://arxiv.org/abs/1301.3781)
 [b](https://proceedings.neurips.cc/paper/2013/file/9aa42b31882ec039965f3c4923ce901b-Paper.pdf)
 
 #### Week 39
 
+- [Chapter 9](https://web.stanford.edu/~jurafsky/slp3/old_jan25/9.pdf) from `Speech and Language
+Processing, 2025 by Jurafsky &
+Martin`, :warning: edition from January 2025
 - [Vaswani et al. (2017)](https://proceedings.neurips.cc/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf)
 
 #### Week 40
