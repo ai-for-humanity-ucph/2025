@@ -182,7 +182,11 @@ Device set to use cpu
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>set_seed(<span class="dv">42</span>)</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>generator <span class="op">=</span> pipeline(<span class="st">"text-generation"</span>, model<span class="op">=</span><span class="st">"gpt2"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>The <code>generator</code> variable is a <code>TextGenerationPipeline</code> object; it takes as input some text (i.e.&nbsp;a <a href="https://www.wikiwand.com/en/articles/Prompt_(natural_language)">prompt</a>) and generates more text conditioned on the prompt. The parameter <code>model="gpt2"</code> selects the <a href="https://huggingface.co/openai-community/gpt2">GPT2 small model</a>.</p></li>
+<p>The <code>generator</code> variable is a <code>TextGenerationPipeline</code> object; it takes as input some text (i.e.&nbsp;a <a href="https://www.wikiwand.com/en/articles/Prompt_(natural_language)">prompt</a>) and generates more text conditioned on the prompt. The parameter <code>model="gpt2"</code> selects the <a href="https://huggingface.co/openai-community/gpt2">GPT2 small model</a>.</p>
+<p>See also the <a href="https://huggingface.co/docs/transformers/v4.39.1/en/main_classes/pipelines#transformers.TextGenerationPipeline">docs</a> for more on the <code>TextGenerationPipeline</code> object (the <code>pipeline</code> variable).</p>
+<blockquote class="blockquote">
+<p>Note: running <code>pipeline("text-generation", model="gpt2")</code> the first time downloads the weights (estimated parameters) of the GPT-2 model + more. On Mac/Linux, look for the file <code>model.safetensors</code> inside the folder <code>~/.cache/huggingface/hub/models--gpt2/</code>; this file contains the weights of the model. The vocabulary and tokenizer is also store there. On Windows, look under <code>C:\Users\username\.cache\huggingface\hub\models--gpt2</code> or something similar.</p>
+</blockquote></li>
 <li><p>Generate some text using the <code>generator</code>. You can e.g.&nbsp;use the prompt <code>"Hello, I'm a language model,"</code> as a starting point. Set <code>max_length=50</code> to avoid frying your computer (the maximum value of <code>max_length</code> is <code>1024</code>; this is the <em>context length</em> of the model). Try setting the parameter <code>num_return_sequences</code> to some number larger than one to generate several sequences.</p></li>
 <li><p>Try running:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(generator.tokenizer, generator.model, sep<span class="op">=</span><span class="st">"</span><span class="ch">\n</span><span class="st">"</span> <span class="op">+</span> <span class="st">"-"</span> <span class="op">*</span> <span class="dv">45</span> <span class="op">+</span> <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -383,14 +387,16 @@ torch.Size([1, 8, 50257])</code></pre>
 <p>that samples the next token, based on top <span class="math inline">\(k\)</span> sampling, given an input logit.</p>
 <p>With the <code>generate_text</code> function defined as in the previous exercise, you should be able to generate text by simply changing <code>sample_fn</code> from <code>greedy_decoding</code> to <code>topk_sampling</code>.</p>
 <p>If you run:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>torch.manual_seed(<span class="dv">2025</span>)</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>tokens <span class="op">=</span> generate_text(</span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    model,</span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    tokenizer(<span class="st">"Hello world,"</span>, return_tensors<span class="op">=</span><span class="st">"pt"</span>)[<span class="st">"input_ids"</span>],</span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>    max_length<span class="op">=</span><span class="dv">65</span>,</span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>    sample_fn<span class="op">=</span>partial(topk_sampling, k<span class="op">=</span><span class="dv">10</span>),</span>
-<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(tokenizer.decode(tokens[<span class="dv">0</span>]))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> functools <span class="im">import</span> partial</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>torch.manual_seed(<span class="dv">2025</span>)</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>tokens <span class="op">=</span> generate_text(</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>    model,</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>    tokenizer(<span class="st">"Hello world,"</span>, return_tensors<span class="op">=</span><span class="st">"pt"</span>)[<span class="st">"input_ids"</span>],</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>    max_length<span class="op">=</span><span class="dv">65</span>,</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>    sample_fn<span class="op">=</span>partial(topk_sampling, k<span class="op">=</span><span class="dv">10</span>),</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(tokenizer.decode(tokens[<span class="dv">0</span>]))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>you should get output equivalent to:</p>
 <pre><code>Hello world, this is not the end of the world. We've got to have something to do with it, because if we don't then things can change. The next big thing is the future.
 
