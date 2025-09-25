@@ -56,7 +56,8 @@ week39:
     topic: "Foundations"
     content: "Transformers"
     teachers: "Jonas"
-    material: 
+    material: <a href="../exercises/class-4">Class 4<a/>
+
 week40:
   - date: "2025-10-01"
     time: "10:00–12:00"
