@@ -58,7 +58,8 @@ ML to uncover new data sources for social science
 - Chapters [3](https://web.stanford.edu/~jurafsky/slp3/old_jan25/3.pdf) and [6](https://web.stanford.edu/~jurafsky/slp3/old_jan25/6.pdf) 
 from `Speech and Language
 Processing, 2025 by Jurafsky &
-Martin`, :warning: edition from January 2025
+Martin`,   
+!!! edition from January 2025 !!!
 
 - Mikolov et al. (2013) [a](https://arxiv.org/abs/1301.3781)
 [b](https://proceedings.neurips.cc/paper/2013/file/9aa42b31882ec039965f3c4923ce901b-Paper.pdf)
@@ -67,12 +68,18 @@ Martin`, :warning: edition from January 2025
 
 - [Chapter 9](https://web.stanford.edu/~jurafsky/slp3/old_jan25/9.pdf) from `Speech and Language
 Processing, 2025 by Jurafsky &
-Martin`, :warning: edition from January 2025
+Martin`,   
+!!! edition from January 2025 !!!
 - [Vaswani et al. (2017)](https://proceedings.neurips.cc/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf)
 
 #### Week 40
-
-TBD
+- [Chapter: Large Language Models](https://web.stanford.edu/~jurafsky/slp3/7.pdf) from `Speech and Language
+Processing, 2025 by Jurafsky &
+Martin`, edition from August 2025
+- [Chapter: Post-training: Instruction Tuning, Alignment, and Test-Time Compute](https://web.stanford.edu/~jurafsky/slp3/9.pdf) from `Speech and Language
+Processing, 2025 by Jurafsky &
+Martin`, edition from August 2025
+- [Ouyang et al. (2022)](https://proceedings.neurips.cc/paper_files/paper/2022/file/b1efde53be364a73914f58805a001731-Paper-Conference.pdf)
 
 #### Week 41
 
