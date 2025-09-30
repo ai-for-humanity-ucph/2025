@@ -62,9 +62,9 @@ week40:
   - date: "2025-10-01"
     time: "10:00–12:00"
     topic: "Foundations"
-    content: "Generative AI"
+    content: "LLMs"
     teachers: "Stephanie"
-    material: TBD
+    material: <a href="https://github.com/ai-for-humanity-ucph/2025/blob/main/teaching-material/5/lecture-5.pdf">Slides</a>
 
   - date: "2025-10-02"
     time: "15:00–17:00"
@@ -76,7 +76,7 @@ week41:
   - date: "2025-10-08"
     time: "10:00–12:00"
     topic: "Foundations"
-    content: "LLMs"
+    content: "Generative AI"
     teachers: "Stephanie"
     material: TBD
 
