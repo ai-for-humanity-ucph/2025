@@ -245,8 +245,8 @@ Performance on the second half: -0.843</code></pre>
 \tag{2}\]</span></span> where the <span class="math inline">\(\mathrm{softmax}\)</span> is applied row-wise i.e.&nbsp;the rows sum to <span class="math inline">\(1\)</span>. The quantity <span class="math inline">\(A\)</span> in <a href="#eq-attention-matrix" class="quarto-xref">Equation&nbsp;1</a> is the <em>attention matrix </em> of the given head. This is the matrix we plotted in the previous exercise. The quantity <span class="math inline">\(O\)</span> in <a href="#eq-attention-output" class="quarto-xref">Equation&nbsp;2</a> is the <em>attention output</em> of the given head. The masking is done as follows: <span class="math display">\[\begin{align*}
     \mathrm{mask}\left(\frac{Q K^{T}}{\sqrt{d_{k}}}\right)
     :=
-    \frac{Q K^{T}}{\sqrt{d_{k}}} + M.
-\end{align*}\]</span> where the causal mask <span class="math inline">\(M\)</span> is a lower-triangular matrix <span class="math inline">\(M \in \{0, -\infty\}^{n \times
+    \frac{Q K^{T}}{\sqrt{d_{k}}} + M,
+\end{align*}\]</span> where the “causal mask” <span class="math inline">\(M\)</span> is a lower-triangular matrix <span class="math inline">\(M \in \{0, -\infty\}^{n \times
     n}\)</span>: <span class="math display">\[\begin{align*}
     M =
     \begin{bmatrix}
