@@ -153,10 +153,10 @@ window.Quarto = {
 
 <p>This week we start from <a href="https://github.com/ai-for-humanity-ucph/2025-exercises/tree/06d5337dc82bb88b5a0c66ed841f4b136b2b72bd">this</a> repository.</p>
 <hr>
-<p>Last week we played around with one instance of a pre-trained transformer, the GPT-2 model. What truly set transformers apart from earlier architectures is the attention mechanism. We postponed discussing it then, but now it’s time to dive in. To appreciate its impact, just look at the citation count of the 2017 paper <a href="https://scholar.google.com/scholar_lookup?arxiv_id=1706.03762">“Attention is all you need”</a>. That work,and the architecture it introduced,arguably ignited the current era of generative AI.</p>
+<p>Last week we played around with one instance of a pre-trained transformer, the GPT-2 model. What truly set transformers apart from earlier architectures is the attention mechanism. We postponed discussing it then, but now it’s time to dive in. To appreciate its impact, just look at the citation count of the 2017 paper <a href="https://scholar.google.com/scholar_lookup?arxiv_id=1706.03762">“Attention is all you need”</a>. That work, and the architecture it introduced, arguably ignited the current era of generative AI.</p>
 <section id="exercise-1---visualizing-attention" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-1---visualizing-attention">Exercise 1 - Visualizing Attention</h3>
-<p>This goal of this exercise is to plot the <em>attention matrices</em> (defined in <a href="#eq-attention-matrix" class="quarto-xref">Equation&nbsp;1</a>) of the GPT-2 model using <a href="https://github.com/TransformerLensOrg/CircuitsVis">circuitsvis</a> library.</p>
+<p>The goal of this exercise is to plot the <em>attention matrices</em> (defined in <a href="#eq-attention-matrix" class="quarto-xref">Equation&nbsp;1</a>) of the GPT-2 model using <a href="https://github.com/TransformerLensOrg/CircuitsVis">circuitsvis</a> library.</p>
 <ol type="1">
 <li><p>Add <code>circuitsvis</code> as a project dependency using <code>uv</code>.</p></li>
 <li><p>Load the GPT-2 model from last week</p>
@@ -164,33 +164,37 @@ window.Quarto = {
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>tokenizer <span class="op">=</span> GPT2Tokenizer.from_pretrained(<span class="st">"gpt2"</span>)</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> GPT2LMHeadModel.from_pretrained(<span class="st">"gpt2"</span>, output_attentions<span class="op">=</span><span class="va">True</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
-<li><p>Tokenize the sentence <code>The chicken did not cross the road because it was too    tired.</code> using the <code>tokenizer</code>. Before doing so, preprend the <code>bos_token</code> token to the sentence (this can be found as <code>tokenizer.bos_token</code>).</p></li>
-<li><p>Pass the tokens through the model as done last week. Set <code>output_attentions=True</code> to get access to the attention matrices of each layer of the model. Store the output in a variable called <code>output</code>. You should be able to see the attention matrices of layer <span class="math inline">\(0\)</span> by inspecting: <code>outputs.attentions[0]</code>.</p></li>
-<li><p>Get the tokens as a list of <code>str</code> vals using <code>tokenizer.batch_decode</code>. Set <code>clean_up_tokenization_spaces=False</code>.</p></li>
+<li><p>Tokenize the sentence <code>The chicken did not cross the road because it was too tired.</code> using the <code>tokenizer</code>. Before doing so, prepend the <code>bos_token</code> token to the sentence (this can be found as <code>tokenizer.bos_token</code>).</p></li>
+<li><p>Pass the tokens through the model as done last week. Set <code>output_attentions=True</code> to get access to the attention matrices of each layer of the model. Store the output in a variable called <code>outputs</code>. You should be able to see the attention matrices of layer <span class="math inline">\(0\)</span> by inspecting: <code>outputs.attentions[0]</code>.</p></li>
+<li><p>Get the tokens as a list of <code>str</code> values using <code>tokenizer.batch_decode</code>. Set <code>clean_up_tokenization_spaces=False</code>.</p>
+<blockquote class="blockquote">
+<p>Note: you might want to <a href="https://docs.pytorch.org/docs/stable/generated/torch.squeeze.html">squeeze</a> the input tensor to get a list of str tokens.</p>
+</blockquote></li>
 <li><p>Import the <code>attention_heads</code> plotting function:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> circuitsvis.attention <span class="im">import</span> attention_heads</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Then plot all the attention matrices (<span class="math inline">\(12\)</span> in total) of the first layer (index <span class="math inline">\(0\)</span>), i.e.&nbsp;the ones in <code>outputs.attentions[0]</code>, using the <code>attention_heads</code> function. You should pass the list of tokens transformed to string values and the tensor of attention matrices.</p>
+<p>Then plot all the attention matrices (<span class="math inline">\(12\)</span> in total) of the first layer (index <span class="math inline">\(0\)</span>), i.e.&nbsp;the ones in <code>outputs.attentions[0]</code>, using the <code>attention_heads</code> function. You should pass the list of tokens transformed to string values and the tensor of attention matrices. The input tensor of attention matrices to the function should be of dimension <code>(12, n, n)</code> where <code>n</code> is the number of input tokens; hence, you should squeeze <code>outputs.attentions[0]</code>.</p>
 <p>The resulting output should be:</p></li>
 </ol>
 <iframe src="class-5-extra/l1.html" width="100%" height="700" loading="lazy" style="border:0;"></iframe>
 <p>Interpret the output. Get guidance from <a href="#eq-attention-matrix" class="quarto-xref">Equation&nbsp;1</a> and the book.</p>
 <blockquote class="blockquote">
-<p>Note: if you do this exercise in a notebook you should be able to see the figure directly. If you do it in a script and want to save the plot (it is a html-file) then you can use the following snippet:</p>
+<p>Note: if you do this exercise in a notebook you should be able to see the figure directly. If you do it in a script and want to save the plot (it is a HTML file) then you can use the following snippet:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>html <span class="op">=</span> attention_heads(_)  <span class="co"># Placeholder should be your code</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">"output/layer0.html"</span>, <span class="st">"w"</span>) <span class="im">as</span> f:</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    f.write(<span class="bu">str</span>(html))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Open this file using e.g.&nbsp;your browser.</p>
 </blockquote>
 <ol start="7" type="1">
 <li><p>Do the same but for the last, i.e.&nbsp;<span class="math inline">\(12\)</span>th, layer. You should get output similar to:</p>
 <iframe src="class-5-extra/l12.html" width="100%" height="700" loading="lazy" style="border:0;"></iframe>
-<p>Interpret the matrices and compare them to the ones for the first layer in the previous the exercise.</p></li>
+<p>interpret the matrices and compare them to the ones for the first layer in the previous exercise.</p></li>
 <li><p>Use the snippet below to draw <span class="math inline">\(20\)</span> random tokens.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>torch.manual_seed(<span class="dv">2025</span>)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>seq_len <span class="op">=</span> <span class="dv">20</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>random_tokens <span class="op">=</span> torch.randint(low<span class="op">=</span><span class="dv">0</span>, high<span class="op">=</span><span class="dv">100</span>, size<span class="op">=</span>(<span class="dv">1</span>, seq_len))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Construct a tensor of <code>random_tokens</code> repeated (i.e.&nbsp;a <code>(1, 40)</code>-dimensional tensor). Prepend <code>tokenizer.bos_token_id</code> to this repeated tensor resulting in a <code>(1, 41)</code>-dimensional tensor. Denote this tensor by <code>tokens</code>.</p>
 <blockquote class="blockquote">
-<p>Note: you sequence of tokens should equal:</p>
+<p>Note: the sequence of tokens should equal:</p>
 <pre class="empty"><code>[N', 'Y', '"', 'D', '"', 'O', '/', 'C', 'c', 'A', ']', 
  'l', '(', 'Y', 'a', 'o', '=', '^', 'c', 'O', 'N', 'Y',
  '"', 'D', '"']</code></pre>
@@ -198,14 +202,15 @@ window.Quarto = {
 <li><p>Pass the tensor <code>tokens</code> through the model; use the same approach as in 4. Plot the attention matrices of layer <span class="math inline">\(6\)</span>. You should get output similar to:</p>
 <iframe src="class-5-extra/l6-random.html" width="100%" height="700" loading="lazy" style="border:0;"></iframe>
 <p>Try to interpret the attention matrices <code>Head 1</code> and <code>Head 5</code> of the first layer. E.g. entry <span class="math inline">\((30, 11)\)</span> in the attention matrix of <code>Head 1</code>; the destination token is <code>a</code> and source token is <code>o</code> (destination = query; source = key). Why does token <code>a</code> attend this much to token <code>o</code>?</p></li>
-<li><p>Get the output logits from the forward pass of the previous exercise. Apply <code>log_softmax</code> to the logits. Then for each token <span class="math inline">\(i\)</span> extract the log probablity of the correct next token in the sequence. Use the method <code>.detach().numpy()</code> to convert it into a numpy array. Compute the average log probability on the first and second half of the sequence. Finally, plot all the log probabilities using <code>matplotlib</code>. You should get a plot similar to:</p>
+<li><p>Get the output logits from the forward pass of the previous exercise. Apply <code>log_softmax</code> to the logits. Then for each token <span class="math inline">\(i\)</span> extract the log probability of the correct next token in the sequence. Use the method <code>.detach().numpy()</code> to convert it into a numpy array. Compute the average log probability on the first and second half of the sequence. Finally, plot all the log probabilities using <code>matplotlib</code>. You should get a plot similar to:</p>
 <p><img src="class-5-extra/loss_random.png" class="img-fluid"></p>
 <p>and loss on the two halves equal to:</p>
 <pre><code>Performance on the first half: -6.289
 Performance on the second half: -0.843</code></pre>
 <p>Interpret the output.</p>
 <blockquote class="blockquote">
-<p>Note: we just passed a repeated sequence of random tokens into the model and somehow the loss (the loss is the negative of the log probabilites) is much smaller on the first half. The model recognizes that the sequence is repeated and learns, <em>in-context</em>, that it should predict the next token of the previous repetition of the sequence. If you are interested in more of this curious behaviour see e.g. <a href="https://transformer-circuits.pub/2022/in-context-learning-and-induction-heads/index.html">this</a> paper.</p>
+<p>Note: we just passed a repeated sequence of random tokens into the model and somehow the loss (the loss is the negative of the log probabilities) is much smaller on the first half. The model recognizes that the sequence is repeated and learns, <em>in-context</em>, that it should predict the next token of the previous repetition of the sequence.</p>
+<p>If you are interested in more of this curious behaviour see e.g. <a href="https://transformer-circuits.pub/2022/in-context-learning-and-induction-heads/index.html">this</a> paper. The exercises was inspired by the <a href="https://arena-chapter1-transformer-interp.streamlit.app/">Arena Transformer Interpretability</a> course.</p>
 </blockquote></li>
 </ol>
 </section>
@@ -222,7 +227,7 @@ Performance on the second half: -0.843</code></pre>
     K = XW^{K} + b^{K},
     \quad
     V = XW^{V} + b^{V}
-\end{align*}\]</span> where <span class="math inline">\(Q, K, V \in \mathbb{R}^{n \times 64}\)</span> and <span class="math inline">\(b^{Q}, b^{K}, b^{V} \in \mathbb{R}^{64}\)</span>.</p>
+\end{align*}\]</span> where <span class="math inline">\(Q, K, V \in \mathbb{R}^{n \times 64}\)</span> and <span class="math inline">\(b^{Q}, b^{K}, b^{V} \in \mathbb{R}^{64 \times 1}\)</span>.</p>
 <p>The self-attention step for an entire sequence of <span class="math inline">\(n\)</span> tokens for one head equals: <span id="eq-attention-matrix"><span class="math display">\[
 \begin{align*}
     A :=
@@ -299,9 +304,9 @@ Performance on the second half: -0.843</code></pre>
 <span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>O, A <span class="op">=</span> h0.attn(X)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Relate the code to the model architecture.</p>
 <p>We will now compute <code>A</code> and <code>O</code> manually.</p></li>
-<li><p>The way GPT-2 computes attention is done in a specific way. To get weight matrices that looks like the one in the book and the equations above run the snippet:</p>
+<li><p>The way GPT-2 computes attention is done in a specific way. The following snippet extracts the matrices into a familiar format. To get weight matrices that looks like the one in the book and the equations above run the following snippet:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>cfg <span class="op">=</span> model.config</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>d_head <span class="op">=</span> cfg.n_embd <span class="op">//</span> cfg.n_head</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>d_head <span class="op">=</span> cfg.n_embd <span class="op">//</span> cfg.n_head  <span class="co"># correspond to d_k, d_v in the equations</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>n_embd <span class="op">=</span> cfg.n_embd</span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>W <span class="op">=</span> h0.attn.c_attn.weight</span>
@@ -316,8 +321,11 @@ Performance on the second half: -0.843</code></pre>
 <span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>b_Ks <span class="op">=</span> b_K.split(d_head, dim<span class="op">=</span><span class="dv">0</span>)</span>
 <span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>W_Vs <span class="op">=</span> W_V.split(d_head, dim<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>b_Vs <span class="op">=</span> b_V.split(d_head, dim<span class="op">=</span><span class="dv">0</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>The <code>W_xs</code>, <code>b_xs</code> (for Q,K,V) contain weight and bias matrices for each head of the first layer. You will use these to compute the attention matrices in the next exercise.</p></li>
-<li><p>Compute the attention matrix for the <span class="math inline">\(i\)</span>th head (of the 12 total heads) for the first layer. The mask should be constructed using <code>torch.triu</code> and <code>QKT.masked_fill(mask,    float("-inf"))</code> where <code>QKT</code> is the product of the query and key matrices for the <span class="math inline">\(i\)</span>th head. Remember to divide by <span class="math inline">\(\sqrt{d_{k}}\)</span> and apply the softmax <em>row-wise</em>.</p>
+<p>The <code>W_Qs</code>, <code>b_Qs</code>, <code>W_Ks</code>, <code>b_Ks</code>, <code>W_Vs</code>, <code>b_Vs</code> variables contain the weight and bias matrices for each head of the first layer; i.e. they are tuples of tensors. You will use these to compute the attention matrices in the next exercise.</p>
+<blockquote class="blockquote">
+<p>Note: if you are uncertain about where the matrices fit in the big picture try inspecting the <code>model</code> variable e.g.&nbsp;printing it.</p>
+</blockquote></li>
+<li><p>Compute the attention matrix for the <span class="math inline">\(i\)</span>th head (of the 12 total heads) for the first layer using the matrices above and the <code>X</code> tensor from 2. The mask should be constructed using <code>torch.triu</code> and the <a href="https://docs.pytorch.org/docs/stable/generated/torch.Tensor.masked_fill.html">tensor-method</a> <code>masked_fill(mask, float("-inf"))</code> where <code>QKT</code> is the product of the query and key matrices for the <span class="math inline">\(i\)</span>th head. Remember to divide by <span class="math inline">\(\sqrt{d_{k}}\)</span> and apply the softmax <em>row-wise</em>.</p>
 <p>You can assert that you get the correct output by comparing it to the matrix <code>A</code>:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> torch.allclose(attn_weights, A[<span class="dv">0</span>][i])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
 <li><p>Compute the <span class="math inline">\(12\)</span> heads and stack them on top, denote this tensor by <code>aheads</code>. Then compute <code>O</code> using the <span class="math inline">\(12\)</span> heads and <code>W_O, b_O</code>. Check your solution with:</p>
