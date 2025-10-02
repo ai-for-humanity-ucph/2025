@@ -115,6 +115,7 @@ window.Quarto = {
   <ul>
   <li><a href="#exercise-1---visualizing-attention" id="toc-exercise-1---visualizing-attention" class="nav-link active" data-scroll-target="#exercise-1---visualizing-attention">Exercise 1 - Visualizing Attention</a></li>
   <li><a href="#exercise-2---computing-attention" id="toc-exercise-2---computing-attention" class="nav-link" data-scroll-target="#exercise-2---computing-attention">Exercise 2 - Computing Attention</a></li>
+  <li><a href="#appendix" id="toc-appendix" class="nav-link" data-scroll-target="#appendix">Appendix</a></li>
   </ul>
 </nav>
 </div>
@@ -331,6 +332,13 @@ Performance on the second half: -0.843</code></pre>
 <li><p>Compute the <span class="math inline">\(12\)</span> heads and stack them on top, denote this tensor by <code>aheads</code>. Then compute <code>O</code> using the <span class="math inline">\(12\)</span> heads and <code>W_O, b_O</code>. Check your solution with:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> t.allclose(aheads <span class="op">@</span> W_O <span class="op">+</span> b_O, O, atol<span class="op">=</span><span class="fl">1e-6</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
 </ol>
+</section>
+<section id="appendix" class="level3">
+<h3 class="anchored" data-anchor-id="appendix">Appendix</h3>
+<p>Things introduced at the exercise class:</p>
+<ul>
+<li><a href="https://docs.python.org/3/library/pdb.html">pdb</a></li>
+</ul>
 </section>
 
 </main>
