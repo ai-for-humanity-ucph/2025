@@ -71,7 +71,7 @@ week40:
     topic: "Foundations"
     content: "Generative NLP-LLMs"
     teachers: "Jonas"
-    material: 
+    material: <a href="../exercises/class-5">Class 5<a/>
 week41:
   - date: "2025-10-08"
     time: "10:00–12:00"
