@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.21">
+<meta name="generator" content="quarto-1.9.2">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -68,7 +68,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="class-1_files/libs/quarto-html/tippy.umd.min.js"></script>
 <script src="class-1_files/libs/quarto-html/anchor.min.js"></script>
 <link href="class-1_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="class-1_files/libs/quarto-html/quarto-syntax-highlighting-ea1d7ac60288e0f1efdbc993fd8432ae.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="class-1_files/libs/quarto-html/quarto-syntax-highlighting-c6982bbdd90c704a9b15aa23d87ad911.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="class-1_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="class-1_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="class-1_files/libs/bootstrap/bootstrap-08c51c3f28a05300be652669dc15fce5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
@@ -125,7 +125,7 @@ window.Quarto = {
   <li><a href="#exercise-2---create-a-uv-project-and-virtual-environment" id="toc-exercise-2---create-a-uv-project-and-virtual-environment" class="nav-link" data-scroll-target="#exercise-2---create-a-uv-project-and-virtual-environment">Exercise 2 - Create a uv project and virtual environment</a></li>
   <li><a href="#exercise-3---installing-dependencies" id="toc-exercise-3---installing-dependencies" class="nav-link" data-scroll-target="#exercise-3---installing-dependencies">Exercise 3 - Installing dependencies</a></li>
   <li><a href="#exercise-4---interactive-development-whichever-way-you-like" id="toc-exercise-4---interactive-development-whichever-way-you-like" class="nav-link" data-scroll-target="#exercise-4---interactive-development-whichever-way-you-like">Exercise 4 - Interactive development whichever way you like</a></li>
-  <li><a href="#exercise-5---logistic-regression---theory" id="toc-exercise-5---logistic-regression---theory" class="nav-link" data-scroll-target="#exercise-5---logistic-regression---theory">Exercise 5 - Logistic Regression - Theory</a></li>
+  <li><a href="#optional-exercise-5---logistic-regression---theory" id="toc-optional-exercise-5---logistic-regression---theory" class="nav-link" data-scroll-target="#optional-exercise-5---logistic-regression---theory">Optional: Exercise 5 - Logistic Regression - Theory</a></li>
   <li><a href="#exercise-5---logistic-regression---implementation" id="toc-exercise-5---logistic-regression---implementation" class="nav-link" data-scroll-target="#exercise-5---logistic-regression---implementation">Exercise 5 - Logistic Regression - Implementation</a></li>
   </ul></li>
   <li><a href="#further-reading" id="toc-further-reading" class="nav-link" data-scroll-target="#further-reading">Further reading</a>
@@ -237,7 +237,7 @@ window.Quarto = {
 <section id="exercise-1---create-a-project-directory" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-1---create-a-project-directory">Exercise 1 - Create a project directory</h3>
 <ol type="1">
-<li><p>Create a directory called <code>exercises</code> where you will store all your code for the exercise classes. Try to do this using your shell but you can also point and click if you rather do that. I have for instance created one in my home directory under <code>ai-for-humanity/exercises</code>.</p></li>
+<li><p>Create a directory called <code>exercises</code> where you will store all your code for the exercise classes. This will be called the “project directory” from now on. Try to do this using your shell but you can also point and click if you rather do that. I have for instance created one in my home directory under <code>ai-for-humanity/exercises</code>.</p></li>
 <li><p>Open your shell and change directory into your new <code>exercises</code> folder. You can check the current directory by typing <code>pwd</code> (if you are on Mac or Linux; Windows users should use <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/cd"><code>cd</code></a>).</p>
 <p>You should see something like this:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="bu">pwd</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -366,8 +366,8 @@ uv.lock</code></pre>
 <li><p>Add the line <code>.ipynb_checkpoints/</code> to your <code>.gitignore</code> file. Add the the changes to <code>uv.lock</code>, <code>pyproject.toml</code>, <code>.gitignore</code> and your notebook <code>notebooks/linear_model.ipynb</code>. Commit the changes.</p></li>
 </ol>
 </section>
-<section id="exercise-5---logistic-regression---theory" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-5---logistic-regression---theory">Exercise 5 - Logistic Regression - Theory</h3>
+<section id="optional-exercise-5---logistic-regression---theory" class="level3">
+<h3 class="anchored" data-anchor-id="optional-exercise-5---logistic-regression---theory">Optional: Exercise 5 - Logistic Regression - Theory</h3>
 <p>Alright, enough with coding for a moment. One of the most important fundamental models in machine learning and data science is the logistic regression model. In the following exercise we will derive some expressions that will help us to estimate the parameters in a logistic regression model. Grab a pen and paper and give the following exercises a try.</p>
 <p>Let <span class="math inline">\(Y_i \in \{0, 1\}\)</span> be a binary random variable and <span class="math inline">\(X_i \in \mathbb{R}^{p +
 1}\)</span> a vector of covariates, where we assume the first entry is a <span class="math inline">\(1\)</span> for the constant term. The logistic regression model models the probability:</p>
@@ -382,11 +382,11 @@ X_{i})\}_{i=1}^{n}\)</span>.</p>
 <p>We will estimate <span class="math inline">\(\beta\)</span> using the iteratively reweighted least squares (IRLS) algorithm and implement it inside of <code>src/ai4h/models/linear_model.py</code> package.</p>
 <hr>
 <ol type="1">
-<li><p>Show that we can go from the probability in <a href="#eq-logreg" class="quarto-xref">Equation&nbsp;1</a> to the log odds form: <span id="eq-logodds"><span class="math display">\[
+<li><p>Show that we can go from the probability in <a href="#eq-logreg" class="quarto-xref">Equation&nbsp;1</a> to the <a href="https://www.wikiwand.com/en/articles/Logit">log odds</a> form: <span id="eq-logodds"><span class="math display">\[
 \mathrm{logit} (P(Y_i = 1 \mid X_{i}))
 :=
 \log \frac{P(Y_i = 1 \mid X_{i})}{1 - P(Y_i = 1 \mid X_{i})}
-= X_i^\top \beta.
+= X_i^\top \beta,
 \tag{2}\]</span></span></p>
 <p><a href="#eq-logodds" class="quarto-xref">Equation&nbsp;2</a> shows that the log odds is linear in the parameters <span class="math inline">\(\beta\)</span> and that the <em>logit</em> function is the inverse of the sigmoid function.</p></li>
 <li><p>Write sigmoid function as a function of the variable <span class="math inline">\(z \in \mathbb{R}\)</span>:</p>
@@ -704,13 +704,14 @@ X_{i})\}_{i=1}^{n}\)</span>.</p>
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
