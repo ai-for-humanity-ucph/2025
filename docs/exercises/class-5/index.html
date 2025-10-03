@@ -210,8 +210,7 @@ window.Quarto = {
 Performance on the second half: -0.843</code></pre>
 <p>Interpret the output.</p>
 <blockquote class="blockquote">
-<p>Note: we just passed a repeated sequence of random tokens into the model and somehow the loss (the loss is the negative of the log probabilities) is much smaller on the first half. The model recognizes that the sequence is repeated and learns, <em>in-context</em>, that it should predict the next token of the previous repetition of the sequence.</p>
-<p>If you are interested in more of this curious behaviour see e.g. <a href="https://transformer-circuits.pub/2022/in-context-learning-and-induction-heads/index.html">this</a> paper. The exercises was inspired by the <a href="https://arena-chapter1-transformer-interp.streamlit.app/">Arena Transformer Interpretability</a> course.</p>
+<p>Note: we just passed a repeated sequence of random tokens into the model and somehow the loss (the loss is the negative of the log probabilities) is much smaller on the second half. The model recognizes that the sequence is repeated and learns, <em>in-context</em>, that it should predict the token following the current token in the previous repetition of the sequence. This is an <a href="https://arxiv.org/abs/2206.07682">emergent ability</a> of the model. If you are interested in more of this curious behaviour see e.g. <a href="https://transformer-circuits.pub/2022/in-context-learning-and-induction-heads/index.html">this</a> paper. The exercises was inspired by the <a href="https://arena-chapter1-transformer-interp.streamlit.app/">Arena Transformer Interpretability</a> course.</p>
 </blockquote></li>
 </ol>
 </section>
