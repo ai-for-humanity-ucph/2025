@@ -78,7 +78,7 @@ week41:
     topic: "Foundations"
     content: "Generative AI"
     teachers: "Stephanie"
-    material: TBD
+    material: <a href="https://github.com/ai-for-humanity-ucph/2025/blob/main/teaching-material/6/lecture-6.pdf">Slides</a>
 
   - date: "2025-10-09"
     time: "15:00–17:00"

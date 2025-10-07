@@ -82,10 +82,16 @@ Martin`, edition from August 2025
 - [Ouyang et al. (2022)](https://proceedings.neurips.cc/paper_files/paper/2022/file/b1efde53be364a73914f58805a001731-Paper-Conference.pdf)
 
 #### Week 41
-
-TBD
-
+- Chapters 7.3, 10.4, 10.5, 11.1, 11.3 from [Speech and Language Processing, 2025 by Jurafsky & Martin](https://web.stanford.edu/~jurafsky/slp3/ed3book_aug25.pdf), edition from August 2025
+- Chapter 6 "Prompt Engineering" from Hands-on LLMs by Alammar & Grootendorst
+- [Kojima et al., 2022](https://proceedings.neurips.cc/paper_files/paper/2022/hash/8bb0d291acd4acf06ef112099c16f326-Abstract-Conference.html) 
+- [Blog post on Reasoning](https://magazine.sebastianraschka.com/p/understanding-reasoning-llms)
+- [Blog post on Agentic AI](https://cloud.google.com/discover/what-is-agentic-ai)
 ### Policy
+
+#### Week 43
+- [Kleinberg et al., 2016](https://arxiv.org/pdf/1609.05807)
+- tbc
 
 #### Week 44 and Week 45
 
