@@ -85,7 +85,7 @@ week41:
     topic: "Foundations"
     content: "LLMs"
     teachers: "Jonas"
-    material: 
+    material: <a href="../exercises/class-6">Class 6<a/>
 
 week42:
   - date: Fall break
