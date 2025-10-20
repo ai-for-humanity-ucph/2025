@@ -89,9 +89,23 @@ Martin`, edition from August 2025
 - [Blog post on Agentic AI](https://cloud.google.com/discover/what-is-agentic-ai)
 ### Policy
 
-#### Week 43
+#### Week 43  
+Fairness Definitions & Precision/Recall
+- [Precision/Recall](https://en.wikipedia.org/wiki/Precision_and_recall)
+- [Very brief overview of fairness definitions](https://shubhamjain0594.github.io/post/tlds-arvind-fairness-definitions/) + [1h video tutorial](https://www.youtube.com/watch?v=jIXIuYdnyyk)
+- [Overview of fairness definitions](https://afraenkel.github.io/fairness-book/content/05-parity-measures.html)
+- [Book on Fairness](https://fairmlbook.org/) (optional)
+- [Mehrabi et al, 2022](https://arxiv.org/pdf/1908.09635) (optional)
+
+Case Studies
+- [Buolamwini & Gebru, 2018](https://proceedings.mlr.press/v81/buolamwini18a/buolamwini18a.pdf)  
+- [Cabello et al, 2023](https://aclanthology.org/anthology-files/anthology-files/pdf/emnlp/2023.emnlp-main.525.pdf) (optional, we won't discuss this in the lecture)
+
+Theoretical work
+- [Bell et al., 2023](https://arxiv.org/pdf/2302.06347) (revisits the two papers below + [13 min. video](https://www.youtube.com/watch?v=TJJxidzmCsY))
+- [Chouldechova, 2017](https://arxiv.org/pdf/1703.00056)
 - [Kleinberg et al., 2016](https://arxiv.org/pdf/1609.05807)
-- tbc
+
 
 #### Week 44 and Week 45
 
