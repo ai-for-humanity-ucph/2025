@@ -103,7 +103,7 @@ week43:
     topic: "Policy"
     content: "Fairness"
     teachers: "Jonas"
-    material: 
+    material: <a href="../exercises/class-7">Class 7<a/>
 week44:
   - date: "2025-10-29"
     time: "10:00–12:00"
