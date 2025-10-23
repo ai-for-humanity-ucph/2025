@@ -207,7 +207,12 @@ window.Quarto = {
 <section id="exercise-1---overview-of-data" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-1---overview-of-data">Exercise 1 - Overview of data</h3>
 <ol type="1">
-<li><p>Download the data and place it in some folder in your project directory e.g. <code>data/</code>. The data can then be loaded using e.g.&nbsp;<code>polars</code> and the snippet above.</p></li>
+<li><p>Download the data and place it in some folder in your project directory e.g. <code>data/</code>. The data can then be loaded using e.g.&nbsp;<code>polars</code> and the snippet above.</p>
+<blockquote class="blockquote">
+<p>Tip: the data can be downloaded directly to the <code>data/</code> folder using <a href="https://www.wikiwand.com/en/articles/Wget"><code>wget</code></a> as follows:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> <span class="at">-P</span> data/ https://gist.githubusercontent.com/jsr-p/5ca222a5e48b20aead6a65fcf142d315/raw/c3ae62168c9e5f7887bda3d4d840b69d0cf079fc/fico.csv</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>which you copy, paste and run in your shell.</p>
+</blockquote></li>
 <li><p>Compute the empirical default and non-default rates for the whole sample and conditional on each subgroup in <code>group</code>.</p>
 <p>You should get results similar to:</p>
 <pre><code>shape: (5, 3)
