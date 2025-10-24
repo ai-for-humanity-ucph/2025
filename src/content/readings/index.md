@@ -111,6 +111,9 @@ Theoretical work
 
 Case Studies (same as session 1)
 
+Prediction policy formalization 
+- [Kleinberg, J., Ludwig, J., Mullainathan, S. and Obermeyer, Z., 2015. Prediction policy problems. American Economic Review, 105(5), pp.491-495.](https://doi.org/10.1257/aer.p20151023)
+
 Fairness
 
 - [Liang, A., Lu, J., Mu, X. and Okumura, K., 2021. Algorithm Design: A Fairness-Accuracy Frontier. arXiv preprint arXiv:2112.09975.](https://doi.org/10.48550/arXiv.2112.09975)
