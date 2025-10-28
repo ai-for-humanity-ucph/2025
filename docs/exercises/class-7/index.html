@@ -189,14 +189,17 @@ window.Quarto = {
 <blockquote class="blockquote">
 <p>FICO scores are complicated proprietary classifiers based on features, like number of bank accounts kept, that could interact with culture - and hence race — in unfair ways.</p>
 </blockquote>
-<p>As our data we consider the tuple <span class="math inline">\((Y, R, A) \sim P\)</span> where:</p>
+<p>Hence, you should think of <code>FICO</code> as some complex proprietary function estimated on features that are unavailable to us and our analysis.</p>
+<hr>
+<p>Theoretically, we think of our data as the tuple <span class="math inline">\((Y, R, A) \sim P\)</span> where:</p>
 <ol type="1">
 <li><span class="math inline">\(Y\)</span> is the outcome variable <code>ND</code></li>
 <li><span class="math inline">\(R\)</span> is the credit-score variable <code>FICO</code></li>
 <li><span class="math inline">\(A\)</span> is the protected race variable <code>group</code></li>
 </ol>
-<p>We will study the behavior of a lender under various constraints with the given data at hand. A lender can set a threshold <span class="math inline">\(r\)</span> and decide whether to give out a loan to a given individual based on the credit-score <span class="math inline">\(R\)</span> and the threshold <span class="math inline">\(r\)</span>. The lender will give out a loan to all individuals that have a credit-score above the threshold i.e.&nbsp;<span class="math inline">\(R &gt; r\)</span>. Setting a threshold corresponds to constructing a classifier:</p>
-<p><span id="eq-cls"><span class="math display">\[\hat{Y} := \mathbf{1}\{R &gt; r\}. \tag{1}\]</span></span></p>
+<p>The data provided is an iid sample of <span class="math inline">\(n = 55,000\)</span> observations from this distribution i.e.&nbsp;<span class="math inline">\(\{(Y_{i}, R_{i}, A_{i})\}_{i=1}^{n}\)</span>.</p>
+<p>We will study the behavior of a <em>lender</em> under various constraints using the given data. A lender can set a threshold <span class="math inline">\(r\)</span> and decide whether to give out a loan to an individual based on the individual’s credit-score <span class="math inline">\(R_{i}\)</span> and the threshold <span class="math inline">\(r\)</span>. The lender will give out a loan to all individuals that have a credit-score above the threshold i.e.&nbsp;<span class="math inline">\(R_{i} &gt; r\)</span>. Setting a threshold corresponds to constructing a classifier based on the score <span class="math inline">\(R_{i}\)</span>:</p>
+<p><span id="eq-cls"><span class="math display">\[\hat{Y}_{i} := \mathbf{1}\{R_{i} &gt; r\}. \tag{1}\]</span></span></p>
 <p>Finally, the meaning of true positive, true negative, false positive and false negative in our context for the lender is as follows:</p>
 <ul>
 <li>A <em>true positive</em> is giving out a loan to an individual that did not default previously i.e.&nbsp;<span class="math inline">\(\hat{Y}_{i} = 1\)</span> for <span class="math inline">\(Y_{i} = 1\)</span></li>
@@ -207,11 +210,11 @@ window.Quarto = {
 <section id="exercise-1---overview-of-data" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-1---overview-of-data">Exercise 1 - Overview of data</h3>
 <ol type="1">
-<li><p>Download the data and place it in some folder in your project directory e.g. <code>data/</code>. The data can then be loaded using e.g.&nbsp;<code>polars</code> and the snippet above.</p>
+<li><p>Download the data and place it in some folder in your project directory e.g. <code>data/</code>. The data can then be loaded using for instance <code>polars</code> and the snippet provided above.</p>
 <blockquote class="blockquote">
 <p>Tip: the data can be downloaded directly to the <code>data/</code> folder using <a href="https://www.wikiwand.com/en/articles/Wget"><code>wget</code></a> as follows:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> <span class="at">-P</span> data/ https://gist.githubusercontent.com/jsr-p/5ca222a5e48b20aead6a65fcf142d315/raw/c3ae62168c9e5f7887bda3d4d840b69d0cf079fc/fico.csv</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>which you copy, paste and run in your shell.</p>
+<p>which you can copy, paste and run in your shell.</p>
 </blockquote></li>
 <li><p>Compute the empirical default and non-default rates for the whole sample and conditional on each subgroup in <code>group</code>.</p>
 <p>You should get results similar to:</p>
@@ -252,13 +255,16 @@ window.Quarto = {
 <li><p>Replicate the second panel of Figure 8 in <a href="https://arxiv.org/abs/1610.02413">Hardt et al. 2016</a> while ignoring the shading. What is the interpretation of the figure and how does it relate to fairness?</p>
 <blockquote class="blockquote">
 <p>Hint: use the <code>qcut</code> method from either polars or pandas to compute the within-group percentiles categories and the non-default rates inside those.</p>
-</blockquote></li>
+</blockquote>
+<p>You should get results similar to:</p>
+<p><img src="figs-class-7/ndrate-within.png" class="img-fluid" width="500"></p></li>
 </ol>
 </section>
 <section id="exercise-2---binary-classification-metrics-and-the-roc-curve" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-2---binary-classification-metrics-and-the-roc-curve">Exercise 2 - Binary classification metrics and the ROC curve</h3>
 <ol type="1">
-<li><p>Set <span class="math inline">\(r = 620\)</span> and classify each individual using the rule in <a href="#eq-cls" class="quarto-xref">Equation&nbsp;1</a>. With this you should now have a vector of predicted outcomes, e.g.&nbsp;denoted <code>Y_hat</code>, and the vector of true outcomes, e.g.&nbsp;denoted as <code>y</code>. Use <code>Y_hat</code> and <code>y</code> to compute the True Positive Rate (TPR), False Positive Rate (FPR), True Negative Rate (TNR), and False Negative Rate (FNR).</p>
+<li><p>Set <span class="math inline">\(r = 620\)</span> and classify each individual using the rule in <a href="#eq-cls" class="quarto-xref">Equation&nbsp;1</a>. With this you should now have a vector of predicted outcomes, e.g.&nbsp;denoted <code>Y_hat</code>, and the vector of true outcomes, e.g.&nbsp;denoted as <code>Y</code>. Use <code>Y_hat</code> and <code>Y</code> to compute the True Positive Rate (TPR), False Positive Rate (FPR), True Negative Rate (TNR), and False Negative Rate (FNR).</p>
+<p>You should get results similar to:</p>
 <pre><code>shape: (1, 4)
 ┌──────┬──────┬──────┬──────┐
 │ TPR  ┆ FNR  ┆ FPR  ┆ TNR  │
@@ -267,7 +273,7 @@ window.Quarto = {
 ╞══════╪══════╪══════╪══════╡
 │ 0.77 ┆ 0.23 ┆ 0.18 ┆ 0.82 │
 └──────┴──────┴──────┴──────┘</code></pre></li>
-<li><p>Construct a grid of percentile values <span class="math inline">\(Q := \{0, 0.01, 0.02, \ldots, 0.98, 0.99, 1\}\)</span> e.g.&nbsp;using <code>np.arange</code>. Use these with <code>np.quantile</code> to compute the quantile corresponding to each <span class="math inline">\(q \in Q\)</span>; we will use these as thresholds for the classifier.</p>
+<li><p>Construct a grid of percentile values <span class="math inline">\(\mathcal{P} := \{0, 0.01, 0.02, \ldots, 0.98, 0.99, 1\}\)</span> e.g.&nbsp;using <code>np.arange</code>. Use these with <code>np.quantile</code> to compute the quantile corresponding to each <span class="math inline">\(p \in \mathcal{P}\)</span> of <code>FICO</code>; we will use these as thresholds for the classifier.</p>
 <blockquote class="blockquote">
 <p>Note: you can also just construct a grid from <span class="math inline">\(300\)</span> to <span class="math inline">\(850\)</span> as the thresholds.</p>
 </blockquote>
