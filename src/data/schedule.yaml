@@ -110,7 +110,7 @@ week44:
     topic: "Policy"
     content: "Prediction policy"
     teachers: "Andreas"
-    material: 
+    material: <a href="https://github.com/ai-for-humanity-ucph/2025/blob/main/teaching-material/8/lecture-8.pdf">Slides</a>
   - date: "2025-10-30"
     time: "15:00–17:00"
     topic: "Policy"
