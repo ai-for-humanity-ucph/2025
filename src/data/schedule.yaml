@@ -116,7 +116,7 @@ week44:
     topic: "Policy"
     content: "Prediction policy"
     teachers: "Jonas"
-    material: 
+    material: <a href="../exercises/class-8">Class 8<a/>
 week45:
   - date: "2025-11-05"
     time: "10:00–12:00"
