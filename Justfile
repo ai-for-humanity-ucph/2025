@@ -23,4 +23,11 @@ build:
     touch .wt/gh-pages/docs/.nojekyll
 
 dev:
+    #!/usr/bin/env bash
+    # check theme submodule has been cloned correctly
+    if [[ -z $(ls -A src/themes/beautifulhugo) ]]; then
+        echo "The themes subfolder is empty"
+        echo "Run: 'git submodule update --init --recursive' then try again"
+        exit 1
+    fi
     (cd src && just dev)
