@@ -123,7 +123,7 @@ week45:
     topic: "Policy"
     content: "AI for policy - other uses"
     teachers: "Andreas"
-    material: 
+    material: <a href="https://github.com/ai-for-humanity-ucph/2025/blob/main/teaching-material/9/lecture-9.pdf">Slides</a>
   - date: "2025-11-06"
     time: "15:00–17:00"
     topic: "Policy"
