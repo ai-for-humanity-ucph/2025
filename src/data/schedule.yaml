@@ -129,7 +129,7 @@ week45:
     topic: "Policy"
     content: "AI for policy - other uses"
     teachers: "Jonas"
-    material: 
+    material: <a href="../exercises/class-9">Class 9<a/>
 week46:
   - date: "2025-11-12"
     time: "10:00–12:00"
