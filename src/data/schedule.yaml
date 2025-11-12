@@ -136,7 +136,7 @@ week46:
     topic: "Econ ML"
     content: "Causal machine learning"
     teachers: "Andreas"
-    material: 
+    material: <a href="https://github.com/ai-for-humanity-ucph/2025/blob/main/teaching-material/10/lecture-10.pdf">Slides</a>
   - date: "2025-11-13"
     time: "15:00–17:00"
     topic: "Econ ML"
