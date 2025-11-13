@@ -156,6 +156,58 @@ window.Quarto = {
 <section id="exercise-1---causal-inference-warm-up" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-1---causal-inference-warm-up">Exercise 1 - Causal Inference Warm-Up</h3>
 <ol type="1">
+<li><p>Recall the usual Causal Inference setup from the last lecture. We consider a treatment variable <span class="math inline">\(D\)</span>, outcome <span class="math inline">\(Y\)</span>, and possibly a vector of covariates <span class="math inline">\(X\)</span>; all random variables from some distribution <span class="math inline">\((Y, D, X) \sim P\)</span>. As our data we consider a random sample of <span class="math inline">\(n\)</span> units from i.e.&nbsp;<span class="math inline">\(\{(Y_{i}, D_{i}, X_{i})\}_{i=1}^{n}\)</span>.</p>
+<p>We define unit <span class="math inline">\(i\)</span>’s <em>potential outcomes</em> under two hypothetical intervations as <span class="math inline">\(Y_{i}(1), Y_{i}(0)\)</span>.</p>
+<p>The <em>observed outcome</em> <span class="math inline">\(Y_{i}\)</span> can be written in terms of the potential outcomes as <span id="eq-consistency"><span class="math display">\[\begin{align}
+Y_{i}
+  &amp; =
+\begin{cases}
+     Y_{i}(1), &amp; D_{i} = 1 \\
+     Y_{i}(0), &amp; D_{i} = 0
+\end{cases}
+\\
+  &amp; = Y_{i}(0) + D_{i}\{Y_{i}(1) - Y_{i}(0)\}.
+\end{align} \tag{1}\]</span></span></p>
+<p>To inspect the effect of the treatment <span class="math inline">\(D\)</span> on our outcome <span class="math inline">\(Y\)</span>, we could compare the averages of <span class="math inline">\(Y\)</span> across <span class="math inline">\((D = 1)\)</span> and <span class="math inline">\((D = 0)\)</span> i.e.&nbsp;the <em>naive comparison</em> <span class="math inline">\(E[Y_{i} \mid D_{i} = 1] - E[Y_{i} \mid D_{i} = 0]\)</span>.</p>
+<ol type="1">
+<li><p>Show how we can go from the naive comparison to the following expression from the <a href="https://github.com/ai-for-humanity-ucph/2025/blob/main/teaching-material/10/lecture-10.pdf">slides</a>:</p>
+<p><span class="math display">\[\begin{align*}
+&amp; E[Y_{i} \mid D_{i} = 1] - E[Y_{i} \mid D_{i} = 0]         \\
+&amp; =
+\underbrace{
+    E[Y_{i}(1) - Y_{i}(0) \mid D_{i} = 1]
+}_{ATT}
++
+\underbrace{
+    E[Y_{i}(0) \mid D_{i} = 1]
+    - E[Y_{i}(0) \mid D_{i} = 0]
+}_{\text{Selection bias}}.
+\end{align*}\]</span></p></li>
+<li><p>Assume the potential outcomes <span class="math inline">\(Y_{i}(1), Y_{i}(0)\)</span> are independent of the treatment <span class="math inline">\(D_{i}\)</span>, which is written as <span id="eq-as1"><span class="math display">\[\begin{align*}
+  Y(1), Y(0) \perp\!\!\!\perp D.
+\end{align*} \tag{2}\]</span></span></p>
+<ol type="1">
+<li>Why is the selection bias equal to <span class="math inline">\(0\)</span> under this assumption?</li>
+<li>What does the naive comparison equal under this assumption?</li>
+<li>How does this relate to the concept of <em>identification</em>?</li>
+<li>What is the naive comparison also equal to because of <a href="#eq-as1" class="quarto-xref">Equation&nbsp;2</a>?</li>
+</ol></li>
+<li><p>Assume instead the potential outcomes <span class="math inline">\(Y_{i}(1), Y_{i}(0)\)</span> are independent of the treatment <span class="math inline">\(D_{i}\)</span> conditional on <span class="math inline">\(X_{i}\)</span>:</p>
+<p><span id="eq-cia"><span class="math display">\[\begin{align*}
+Y(1), Y(0) \perp\!\!\!\perp D \mid X,
+\end{align*} \tag{3}\]</span></span></p>
+<ol type="1">
+<li><p>Show how the ATE, <span class="math inline">\(E[Y_{i}(1) - Y_{i}(0)]\)</span>, can be identified as:</p>
+<p><span id="eq-estimand"><span class="math display">\[\begin{align*}
+E[Y_{i}(1) - Y_{i}(0)]
+= E\{
+E[Y_{i}\mid D_{i} = 1, X_{i}]
+-  E[Y_{i}\mid D_{i} = 0, X_{i}]
+\}
+\end{align*} \tag{4}\]</span></span></p>
+<p>using <a href="#eq-consistency" class="quarto-xref">Equation&nbsp;1</a> and <a href="#eq-cia" class="quarto-xref">Equation&nbsp;3</a>.</p></li>
+</ol></li>
+</ol></li>
 <li><p>Consider the table of potential outcomes</p>
 <table class="caption-top table">
 <thead>
@@ -213,72 +265,23 @@ window.Quarto = {
 <li>Compute the average treatment effect (<span class="math inline">\(\text{ATE}\)</span>)</li>
 <li>Is this dataset realistic?</li>
 </ol></li>
-<li><p>Recall the usual Causal Inference setup from the last lecture. We consider a treatment variable <span class="math inline">\(D\)</span>, outcome <span class="math inline">\(Y\)</span>, and possibly a vector of covariates <span class="math inline">\(X\)</span>; all random variables from some distribution <span class="math inline">\((Y, D, X) \sim P\)</span>. As our data we consider a random sample of <span class="math inline">\(n\)</span> units from distribution i.e.&nbsp;<span class="math inline">\(\{(Y_{i}, D_{i}, X_{i})\}_{i=1}^{n}\)</span>.</p>
-<p>We define unit <span class="math inline">\(i\)</span>’s <em>potential outcomes</em> under two hypothetical intervations as <span class="math inline">\(Y_{i}(1), Y_{i}(0)\)</span>.</p>
-<p>The <em>observed outcome</em> <span class="math inline">\(Y_{i}\)</span>, which can be written in terms of the potential outcomes as <span id="eq-consistency"><span class="math display">\[\begin{align}
-Y_{i}
-  &amp; =
-\begin{cases}
-     Y_{i}(1), &amp; D_{i} = 1 \\
-     Y_{i}(0), &amp; D_{i} = 0
-\end{cases}
-\\
-  &amp; = Y_{i}(0) + D_{i}\{Y_{i}(1) - Y_{i}(0)\}.
-\end{align} \tag{1}\]</span></span></p>
-<p>To see how effective the treatment <span class="math inline">\(D\)</span> is on our <span class="math inline">\(Y\)</span>, we could compare the averages of <span class="math inline">\(Y\)</span> across <span class="math inline">\((D = 1)\)</span> and <span class="math inline">\((D = 0)\)</span> i.e.&nbsp;the <em>naive comparison</em> <span class="math inline">\(E[Y_{i} \mid D_{i} = 1] - E[Y_{i} \mid D_{i} = 0]\)</span>.</p>
-<ol type="1">
-<li><p>Show how we can go from the naive comparison to the expression from the slides:</p>
-<p><span class="math display">\[\begin{align*}
-&amp; E[Y_{i} \mid D_{i} = 1] - E[Y_{i} \mid D_{i} = 0]         \\
-&amp; =
-\underbrace{
-    E[Y_{i}(1) - Y_{i}(0) \mid D_{i} = 1]
-}_{ATT}
-+
-\underbrace{
-    E[Y_{i}(0) \mid D_{i} = 1]
-    - E[Y_{i}(0) \mid D_{i} = 0]
-}_{\text{Selection bias}}.
-\end{align*}\]</span></p></li>
-<li><p>Assume the potential outcomes <span class="math inline">\(Y_{i}(1), Y_{i}(0)\)</span> are independent of the treatment <span class="math inline">\(D_{i}\)</span>, which is written as <span id="eq-as1"><span class="math display">\[\begin{align*}
-  Y(1), Y(0) \perp\!\!\!\perp D.
-\end{align*} \tag{2}\]</span></span></p>
-<ol type="1">
-<li>Why is the selection bias now <span class="math inline">\(0\)</span>?</li>
-<li>What does the naive comparison now equal?</li>
-<li>How does this relate to <em>identification</em>?</li>
-<li>What does the naive comparison also equal because of <a href="#eq-as1" class="quarto-xref">Equation&nbsp;2</a>?</li>
-</ol></li>
-<li><p>Assume instead the potential outcomes <span class="math inline">\(Y_{i}(1), Y_{i}(0)\)</span> are independent of the treatment <span class="math inline">\(D_{i}\)</span> conditional on <span class="math inline">\(X_{i}\)</span>:</p>
-<p><span id="eq-cia"><span class="math display">\[\begin{align*}
-Y(1), Y(0) \perp\!\!\!\perp D \mid X,
-\end{align*} \tag{3}\]</span></span></p>
-<ol type="1">
-<li><p>Show how the ATE, <span class="math inline">\(E[Y_{i}(1) - Y_{i}(0)]\)</span>, can be identified as:</p>
-<p><span id="eq-estimand"><span class="math display">\[\begin{align*}
-E[Y_{i}(1) - Y_{i}(0)]
-=
-E\{
-E[Y_{i}\mid D_{i} = 1, X_{i}]
--  E[Y_{i}\mid D_{i} = 0, X_{i}]
-\}
-\end{align*} \tag{4}\]</span></span></p>
-<p>using <a href="#eq-consistency" class="quarto-xref">Equation&nbsp;1</a> and <a href="#eq-cia" class="quarto-xref">Equation&nbsp;3</a>.</p></li>
-</ol></li>
-</ol></li>
 </ol>
 </section>
 <section id="exercise-2---estimators" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-2---estimators">Exercise 2 - Estimators</h3>
 <p>The data for this exercise can be downloaded <a href="https://gist.github.com/jsr-p/ee11c9afaeb9f65d5688ef0f592e103f">here</a>.</p>
+<p>In the following, our <em>estimand</em> of interest is the ATE:</p>
+<p><span id="eq-estimand2"><span class="math display">\[\begin{align*}
+ATT := E[Y_{i}(1) - Y_{i}(0)].
+\end{align*} \tag{5}\]</span></span></p>
 <ol type="1">
 <li><p>Consider the linear model:</p>
 <p><span class="math display">\[\begin{align*}
     Y_{i} = \beta_{0} + \beta_{1} D_{i} + \beta_{2}X_{i} + \varepsilon_{i},
     \quad i = 1, \ldots, n.
 \end{align*}\]</span></p>
-<ol type="1">
-<li><p>Estimate <span class="math inline">\(\beta_1\)</span> using OLS. You can start from the snippet:</p>
+<p>Estimate <span class="math inline">\(\beta_1\)</span> using OLS. Does it estimate <a href="#eq-estimand2" class="quarto-xref">Equation&nbsp;5</a>?</p>
+<p>You can start from the snippet:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels.formula.api <span class="im">as</span> smf</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -287,20 +290,25 @@ E[Y_{i}\mid D_{i} = 1, X_{i}]
 <blockquote class="blockquote">
 <p>Note: you might have to install <a href="https://pypi.org/project/statsmodels/"><code>statmodels</code></a></p>
 </blockquote></li>
-</ol></li>
-<li><p>Fit separate regressions for treated and control groups.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>md0 <span class="op">=</span> smf.ols(<span class="st">"Y ~ D + X"</span>, data<span class="op">=</span>df_sim.<span class="bu">filter</span>(pl.col(<span class="st">"D"</span>).eq(<span class="dv">0</span>))).fit()</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>md1 <span class="op">=</span> smf.ols(<span class="st">"Y ~ D + X"</span>, data<span class="op">=</span>df_sim.<span class="bu">filter</span>(pl.col(<span class="st">"D"</span>).eq(<span class="dv">1</span>))).fit()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>These two models approximate <span class="math display">\[\begin{align*}
+<li><p>Estimate separate regressions for the treated and control group using:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>md0 <span class="op">=</span> smf.ols(<span class="st">"Y ~ D + X"</span>, data<span class="op">=</span>df.<span class="bu">filter</span>(pl.col(<span class="st">"D"</span>).eq(<span class="dv">0</span>))).fit()</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>md1 <span class="op">=</span> smf.ols(<span class="st">"Y ~ D + X"</span>, data<span class="op">=</span>df.<span class="bu">filter</span>(pl.col(<span class="st">"D"</span>).eq(<span class="dv">1</span>))).fit()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>These two models estimate the functions</p>
+<p><span class="math display">\[\begin{align*}
 m_0(x) = E[Y \mid D = 0, X = x], \qquad
 m_1(x) = E[Y \mid D = 1, X = x].
 \end{align*}\]</span></p></li>
-<li><p>Compute the plug-in ATE estimator</p>
+<li><p>Estimate the <em>plug-in ATE</em></p>
 <p><span class="math display">\[\begin{align*}
-\hat\tau_{\text{plugin}} = \frac{1}{n}\sum_i \left( \hat m_1(X_i) - \hat m_0(X_i) \right)
+\hat\tau_{\text{plugin}}
+= \frac{1}{n}\sum_i \left\{ \hat m_1(X_i) - \hat m_0(X_i) \right\}
 \end{align*}\]</span></p>
-<p>using the fitted models to predict potential outcomes for everyone. When predicting using <code>md0</code> you should set <span class="math inline">\(D = 0\)</span> for all individuals in the data. Similarly, when predicting using <code>md1</code> you should set <span class="math inline">\(D = 1\)</span> for all individuals in the data. The plug-in estimate is the average of the difference between the two predicted vectors.</p></li>
-<li><p>The same estimate can be computed using</p>
+<p>using the fitted models. When predicting using <code>md0</code> you should set <span class="math inline">\(D = 0\)</span> for all individuals in the data. Similarly, when predicting using <code>md1</code> you should set <span class="math inline">\(D = 1\)</span> for all individuals in the data. The plug-in estimate is the average of the difference between the two predicted vectors.</p>
+<blockquote class="blockquote">
+<p>Tip: You can predict on the transformed data using the snippet below (for the case of <span class="math inline">\(D = 0\)</span>):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>md0.predict(df.with_columns(D<span class="op">=</span>pl.lit(<span class="dv">0</span>)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</blockquote></li>
+<li><p>The same estimate can be computed assuming the model</p>
 <p><span class="math display">\[\begin{align*}
     Y_{i} = \beta_{0} + \beta_{1} D_{i}
     + \gamma \bar{X}_{i}
@@ -308,7 +316,8 @@ m_1(x) = E[Y \mid D = 1, X = x].
     + \varepsilon_{i},
     \quad i = 1, \ldots, n.
 \end{align*}\]</span></p>
-<p>where <span class="math inline">\(\bar{X}_{i}\)</span> is the sample average of <span class="math inline">\(X_{i}\)</span>. Try computing it this way.</p></li>
+<p>where <span class="math inline">\(\bar{X}_{i}\)</span> is the sample average of <span class="math inline">\(X_{i}\)</span>.</p>
+<p>Estimate <span class="math inline">\(\beta_{1}\)</span> and compare it to the plug-in estimate from 3.</p></li>
 <li><p>Finally, estimate the following naive model:</p>
 <p><span class="math display">\[\begin{align*}
     Y_{i} = \beta_{0} + \beta_{1} D_{i} + \varepsilon_{i},
