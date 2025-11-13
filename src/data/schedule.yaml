@@ -142,7 +142,7 @@ week46:
     topic: "Econ ML"
     content: "Causal machine learning"
     teachers: "Jonas"
-    material: 
+    material: <a href="../exercises/class-10">Class 10<a/>
 week47:
   - date: "2025-11-19"
     time: "10:00–12:00"
