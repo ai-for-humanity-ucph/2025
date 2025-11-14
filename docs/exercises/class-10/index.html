@@ -156,7 +156,7 @@ window.Quarto = {
 <section id="exercise-1---causal-inference-warm-up" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-1---causal-inference-warm-up">Exercise 1 - Causal Inference Warm-Up</h3>
 <ol type="1">
-<li><p>Recall the usual Causal Inference setup from the last lecture. We consider a treatment variable <span class="math inline">\(D\)</span>, outcome <span class="math inline">\(Y\)</span>, and possibly a vector of covariates <span class="math inline">\(X\)</span>; all random variables from some distribution <span class="math inline">\((Y, D, X) \sim P\)</span>. As our data we consider a random sample of <span class="math inline">\(n\)</span> units from i.e.&nbsp;<span class="math inline">\(\{(Y_{i}, D_{i}, X_{i})\}_{i=1}^{n}\)</span>.</p>
+<li><p>Recall the usual Causal Inference setup from the last lecture. We consider a treatment variable <span class="math inline">\(D\)</span>, outcome <span class="math inline">\(Y\)</span>, and possibly a vector of covariates <span class="math inline">\(X\)</span>; all random variables from some distribution <span class="math inline">\((Y, D, X) \sim P\)</span>. As our data we consider a random sample of <span class="math inline">\(n\)</span> units i.e.&nbsp;<span class="math inline">\(\{(Y_{i}, D_{i}, X_{i})\}_{i=1}^{n}\)</span>.</p>
 <p>We define unit <span class="math inline">\(i\)</span>’s <em>potential outcomes</em> under two hypothetical intervations as <span class="math inline">\(Y_{i}(1), Y_{i}(0)\)</span>.</p>
 <p>The <em>observed outcome</em> <span class="math inline">\(Y_{i}\)</span> can be written in terms of the potential outcomes as <span id="eq-consistency"><span class="math display">\[\begin{align}
 Y_{i}
@@ -183,7 +183,7 @@ Y_{i}
     - E[Y_{i}(0) \mid D_{i} = 0]
 }_{\text{Selection bias}}.
 \end{align*}\]</span></p></li>
-<li><p>Assume the potential outcomes <span class="math inline">\(Y_{i}(1), Y_{i}(0)\)</span> are independent of the treatment <span class="math inline">\(D_{i}\)</span>, which is written as <span id="eq-as1"><span class="math display">\[\begin{align*}
+<li><p>Assume the potential outcomes <span class="math inline">\(Y_{i}(1), Y_{i}(0)\)</span> are independent of the treatment <span class="math inline">\(D_{i}\)</span>: <span id="eq-as1"><span class="math display">\[\begin{align*}
   Y(1), Y(0) \perp\!\!\!\perp D.
 \end{align*} \tag{2}\]</span></span></p>
 <ol type="1">
@@ -194,7 +194,7 @@ Y_{i}
 </ol></li>
 <li><p>Assume instead the potential outcomes <span class="math inline">\(Y_{i}(1), Y_{i}(0)\)</span> are independent of the treatment <span class="math inline">\(D_{i}\)</span> conditional on <span class="math inline">\(X_{i}\)</span>:</p>
 <p><span id="eq-cia"><span class="math display">\[\begin{align*}
-Y(1), Y(0) \perp\!\!\!\perp D \mid X,
+Y(1), Y(0) \perp\!\!\!\perp D \mid X.
 \end{align*} \tag{3}\]</span></span></p>
 <ol type="1">
 <li><p>Show how the ATE, <span class="math inline">\(E[Y_{i}(1) - Y_{i}(0)]\)</span>, can be identified as:</p>
@@ -298,12 +298,13 @@ ATT := E[Y_{i}(1) - Y_{i}(0)].
 m_0(x) = E[Y \mid D = 0, X = x], \qquad
 m_1(x) = E[Y \mid D = 1, X = x].
 \end{align*}\]</span></p></li>
-<li><p>Estimate the <em>plug-in ATE</em></p>
+<li><p>Estimate the ATE with <em>plug-in estimator</em></p>
 <p><span class="math display">\[\begin{align*}
 \hat\tau_{\text{plugin}}
 = \frac{1}{n}\sum_i \left\{ \hat m_1(X_i) - \hat m_0(X_i) \right\}
 \end{align*}\]</span></p>
-<p>using the fitted models. When predicting using <code>md0</code> you should set <span class="math inline">\(D = 0\)</span> for all individuals in the data. Similarly, when predicting using <code>md1</code> you should set <span class="math inline">\(D = 1\)</span> for all individuals in the data. The plug-in estimate is the average of the difference between the two predicted vectors.</p>
+<p>using the fitted models.</p>
+<p>When predicting using <code>md0</code> you should set <span class="math inline">\(D = 0\)</span> for all individuals in the data. Similarly, when predicting using <code>md1</code> you should set <span class="math inline">\(D = 1\)</span> for all individuals in the data. The plug-in estimate is the average of the difference between the two predicted vectors.</p>
 <blockquote class="blockquote">
 <p>Tip: You can predict on the transformed data using the snippet below (for the case of <span class="math inline">\(D = 0\)</span>):</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>md0.predict(df.with_columns(D<span class="op">=</span>pl.lit(<span class="dv">0</span>)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -314,7 +315,7 @@ m_1(x) = E[Y \mid D = 1, X = x].
     + \gamma \bar{X}_{i}
     + \delta D_i \bar{X}_{i}
     + \varepsilon_{i},
-    \quad i = 1, \ldots, n.
+    \quad i = 1, \ldots, n,
 \end{align*}\]</span></p>
 <p>where <span class="math inline">\(\bar{X}_{i}\)</span> is the sample average of <span class="math inline">\(X_{i}\)</span>.</p>
 <p>Estimate <span class="math inline">\(\beta_{1}\)</span> and compare it to the plug-in estimate from 3.</p></li>
@@ -332,7 +333,7 @@ m_1(x) = E[Y \mid D = 1, X = x].
 <p>In this exercise we will use data from <a href="https://www.jstor.org/stable/1806062?seq=14">“Evaluating the Econometric Evaluations of Training Programs”</a>, American Economic Review, Vol. 76, pp.&nbsp;604-620 by Robert Lalonde.</p>
 <p>The data for this exercise can be downloaded <a href="https://gist.github.com/jsr-p/f399e9b09aa99526df412f7a5d8e459d">here</a>.</p>
 <ol type="1">
-<li><p>Install the <a href="https://causalinferenceinpython.org/">causalinference</a> using <code>uv</code>.</p></li>
+<li><p>Install the <a href="https://causalinferenceinpython.org/">causalinference</a> package using <code>uv</code>.</p></li>
 <li><p>Estimate the <code>ATE</code> using <code>causalinference</code> by:</p>
 <ol type="1">
 <li><p>OLS, see <a href="https://laurencium.github.io/causal-inference-blog/least-squares/">here</a></p></li>
