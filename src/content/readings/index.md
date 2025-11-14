@@ -55,10 +55,10 @@ ML to uncover new data sources for social science
 
 #### Week 38
 
-- Chapters [3](https://web.stanford.edu/~jurafsky/slp3/old_jan25/3.pdf) and [6](https://web.stanford.edu/~jurafsky/slp3/old_jan25/6.pdf) 
+- Chapters [3](https://web.stanford.edu/~jurafsky/slp3/old_jan25/3.pdf) and [6](https://web.stanford.edu/~jurafsky/slp3/old_jan25/6.pdf)
 from `Speech and Language
 Processing, 2025 by Jurafsky &
-Martin`,   
+Martin`,
 !!! edition from January 2025 !!!
 
 - Mikolov et al. (2013) [a](https://arxiv.org/abs/1301.3781)
@@ -68,11 +68,12 @@ Martin`,
 
 - [Chapter 9](https://web.stanford.edu/~jurafsky/slp3/old_jan25/9.pdf) from `Speech and Language
 Processing, 2025 by Jurafsky &
-Martin`,   
+Martin`,
 !!! edition from January 2025 !!!
 - [Vaswani et al. (2017)](https://proceedings.neurips.cc/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf)
 
 #### Week 40
+
 - [Chapter: Large Language Models](https://web.stanford.edu/~jurafsky/slp3/7.pdf) from `Speech and Language
 Processing, 2025 by Jurafsky &
 Martin`, edition from August 2025
@@ -82,15 +83,19 @@ Martin`, edition from August 2025
 - [Ouyang et al. (2022)](https://proceedings.neurips.cc/paper_files/paper/2022/file/b1efde53be364a73914f58805a001731-Paper-Conference.pdf)
 
 #### Week 41
+
 - Chapters 7.3, 10.4, 10.5, 11.1, 11.3 from [Speech and Language Processing, 2025 by Jurafsky & Martin](https://web.stanford.edu/~jurafsky/slp3/ed3book_aug25.pdf), edition from August 2025
 - Chapter 6 "Prompt Engineering" from Hands-on LLMs by Alammar & Grootendorst
-- [Kojima et al., 2022](https://proceedings.neurips.cc/paper_files/paper/2022/hash/8bb0d291acd4acf06ef112099c16f326-Abstract-Conference.html) 
+- [Kojima et al., 2022](https://proceedings.neurips.cc/paper_files/paper/2022/hash/8bb0d291acd4acf06ef112099c16f326-Abstract-Conference.html)
 - [Blog post on Reasoning](https://magazine.sebastianraschka.com/p/understanding-reasoning-llms)
 - [Blog post on Agentic AI](https://cloud.google.com/discover/what-is-agentic-ai)
+
 ### Policy
 
 #### Week 43  
+
 Fairness Definitions & Precision/Recall
+
 - [Precision/Recall](https://en.wikipedia.org/wiki/Precision_and_recall)
 - [Very brief overview of fairness definitions](https://shubhamjain0594.github.io/post/tlds-arvind-fairness-definitions/) + [1h video tutorial](https://www.youtube.com/watch?v=jIXIuYdnyyk)
 - [Overview of fairness definitions](https://afraenkel.github.io/fairness-book/content/05-parity-measures.html)
@@ -98,20 +103,22 @@ Fairness Definitions & Precision/Recall
 - [Mehrabi et al, 2022](https://arxiv.org/pdf/1908.09635) (optional)
 
 Case Studies
+
 - [Buolamwini & Gebru, 2018](https://proceedings.mlr.press/v81/buolamwini18a/buolamwini18a.pdf)  
 - [Cabello et al, 2023](https://aclanthology.org/anthology-files/anthology-files/pdf/emnlp/2023.emnlp-main.525.pdf) (optional, we won't discuss this in the lecture)
 
 Theoretical work
+
 - [Bell et al., 2023](https://arxiv.org/pdf/2302.06347) (revisits the two papers below + [13 min. video](https://www.youtube.com/watch?v=TJJxidzmCsY))
 - [Chouldechova, 2017](https://arxiv.org/pdf/1703.00056)
 - [Kleinberg et al., 2016](https://arxiv.org/pdf/1609.05807)
-
 
 #### Week 44 and Week 45
 
 Case Studies (same as session 1)
 
-Prediction policy formalization 
+Prediction policy formalization
+
 - [Kleinberg, J., Ludwig, J., Mullainathan, S. and Obermeyer, Z., 2015. Prediction policy problems. American Economic Review, 105(5), pp.491-495.](https://doi.org/10.1257/aer.p20151023)
 
 Fairness
@@ -143,12 +150,18 @@ Causal trees and forests
 
 #### Week 47
 
-- [An Introduction to Double/Debiased Machine Learning](https://arxiv.org/abs/2504.08324)
-- [Causal ML Book](#causalmlbook)
+- [Vansteelandt, Stijn. “Statistical Modelling in the Age of Data Science.” Observational Studies 7, no. 1 (2021): 217–28.](https://doi.org/10.1353/obs.2021.0013)
+- [Ahrens, Achim, Victor Chernozhukov, Christian Hansen, Damian Kozbur, Mark Schaffer, and Thomas Wiemann. “An Introduction to Double/Debiased Machine Learning.” arXiv:2504.08324. Preprint, arXiv, April 11, 2025.](https://arxiv.org/abs/2504.08324)
+
+---
+
+For the curious, the original DML paper:
+
+- [Chernozhukov, Victor, Denis Chetverikov, Mert Demirer, et al. “Double/Debiased Machine Learning for Treatment and Structural Parameters.” The Econometrics Journal 21, no. 1 (2018): C1–68.](https://doi.org/10.1111/ectj.12097.)
 
 #### Week 48
 
-- TBD
+- [Causal ML Book](#causalmlbook)
 
 ### Outro
 
