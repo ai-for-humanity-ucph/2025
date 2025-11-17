@@ -152,6 +152,7 @@ Causal trees and forests
 
 - [Vansteelandt, Stijn. “Statistical Modelling in the Age of Data Science.” Observational Studies 7, no. 1 (2021): 217–28.](https://doi.org/10.1353/obs.2021.0013)
 - [Ahrens, Achim, Victor Chernozhukov, Christian Hansen, Damian Kozbur, Mark Schaffer, and Thomas Wiemann. “An Introduction to Double/Debiased Machine Learning.” arXiv:2504.08324. Preprint, arXiv, April 11, 2025.](https://arxiv.org/abs/2504.08324)
+- [Causal ML Book](#causalmlbook) Chapter 9
 
 ---
 
