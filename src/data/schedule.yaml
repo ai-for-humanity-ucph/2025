@@ -150,6 +150,7 @@ week47:
     content: "Double ML"
     teachers: "Jonas"
     material: 
+        <li><a href="../slides/lecture-11">html</a></li>
   - date: "2025-11-20"
     time: "15:00–17:00"
     topic: "Econ ML"
