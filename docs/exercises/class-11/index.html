@@ -153,8 +153,11 @@ window.Quarto = {
 
 <section id="exercise-1---scores-and-estimators" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-1---scores-and-estimators">Exercise 1 - Scores and Estimators</h3>
-<p>Let <span class="math inline">\(W = (Y, D, X)\)</span> be a tuple of data with <span class="math inline">\(Y\)</span> outcome, <span class="math inline">\(D\)</span> treatment and <span class="math inline">\(X\)</span> covariates. We assume we have access to a dataset of <span class="math inline">\(n\)</span> observations <span class="math inline">\(\{(Y_{i}, D_{i}, X_{i})\}_{i=1}^{n}\)</span> (below we wil simulate from a specific DGP).</p>
-<p>Recall the scores from the <a href="https://ai-for-humanity-ucph.github.io/2025/slides/lecture-11/#/dml-setup">lecture</a> for the average treatment effect (ATE) estimand:</p>
+<p>Let <span class="math inline">\(W = (Y, D, X)\)</span> be a tuple of data with <span class="math inline">\(Y\)</span> outcome, <span class="math inline">\(D\)</span> treatment and <span class="math inline">\(X\)</span> covariates. We assume we have access to a dataset of <span class="math inline">\(n\)</span> observations <span class="math inline">\(\{(Y_{i}, D_{i}, X_{i})\}_{i=1}^{n}\)</span> (below we wil simulate from a specific DGP). In the following our estimand is the average treatment effect (ATE):</p>
+<p><span class="math display">\[\begin{align*}
+                \theta_{0} = E[Y(1) - Y(0)].
+\end{align*}\]</span></p>
+<p>Recall the scores from the <a href="https://ai-for-humanity-ucph.github.io/2025/slides/lecture-11/#/dml-setup">lecture</a> for ATE estimand:</p>
 <ul>
 <li><p><strong>Regression adjustment score:</strong></p>
 <p><span id="eq-RA"><span class="math display">\[\begin{align*}
