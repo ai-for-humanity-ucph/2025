@@ -164,6 +164,7 @@ week48:
     content: "Double ML"
     teachers: "Jonas"
     material: 
+        <li><a href="../slides/lecture-12">html</a></li>
   - date: "2025-11-27"
     time: "15:00–17:00"
     topic: "Econ ML"
