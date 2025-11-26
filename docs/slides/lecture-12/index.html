@@ -332,7 +332,7 @@ Y_{t} = DY_{t}(1) + (1 - D)Y_{t}(0)
 <li><strong>No Anticipation (NA)</strong></li>
 </ul>
 <p><span class="math display">\[\begin{align}
-  E[Y_{0}(0)  \mid D = 1] = E[Y_{0}(1) \mid D = 0]
+  E[Y_{0}(0)  \mid D = 1] = E[Y_{0}(1) \mid D = 1]
 \end{align}\]</span></p>
 <ul>
 <li><strong>Parallel Trends (PT)</strong></li>
@@ -437,7 +437,7 @@ E[Y_{1}(0) \mid D = 1] = E[Y_{0} \mid D = 1] + E[Y_{1} - Y_{0} \mid D = 0]
 <span id="cb3-3"><a href=""></a>    <span class="st">"https://gist.githubusercontent.com/jsr-p/5e61db4595cbf718d6791aaad31b0cec/raw/066ee05186fcb4d59ff61edf466f1cbb0936d1bd/did1-lecture12.csv"</span></span>
 <span id="cb3-4"><a href=""></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ol start="2" type="1">
-<li>Implement the plug-in and OLS estimator; compute the estimates on the dataset.</li>
+<li>Implement the plug-in and OLS estimator; apply the estimators on the dataset</li>
 </ol>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href=""></a><span class="co"># Copy this if you like</span></span>
 <span id="cb4-2"><a href=""></a><span class="im">import</span> statsmodels.formula.api <span class="im">as</span> smf</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -450,7 +450,7 @@ E[Y_{1}(0) \mid D = 1] = E[Y_{0} \mid D = 1] + E[Y_{1} - Y_{0} \mid D = 0]
 <li><p><strong>Condtional No Anticipation (CNA)</strong></p></li>
 </ul>
 <p><span class="math display">\[\begin{align}
-  E[Y_{0}(0)  \mid X, D = 1] = E[Y_{0}(1) \mid X, D = 0]
+  E[Y_{0}(0)  \mid X, D = 1] = E[Y_{0}(1) \mid X, D = 1]
 \end{align}\]</span></p>
 <ul>
 <li><p><strong>Conditional Parallel Trends (CPT)</strong> <span class="math display">\[\begin{align}
@@ -589,9 +589,9 @@ E[Y_{1}(0)\mid X, D = 1]
     (\Delta Y - E[\Delta Y\mid X, D = 0])
     - \frac{D}{P(D = 1)} \tau
     \\&amp;=
-    \frac{D - m_{0}(X)}{p[1 - m_{0}(X)]}
+    \frac{D - m_{0}(X)}{p_{0}[1 - m_{0}(X)]}
     [\Delta Y - g_{0}(0, X)]
-    - \frac{D}{p} \tau,
+    - \frac{D}{p_{0}} \tau,
 \end{align}\]</span> where <span class="math inline">\(W = (Y_{1}, Y_{0}, D, X)\)</span> data, <span class="math inline">\(\tau\)</span> our estimand the ATT, and <span class="math inline">\(\eta = (p, m, g)\)</span> are the nuisance parameters with true values: <span class="math display">\[\begin{align*}
     m_{0}(X) := P(D = 1 \mid X),
     \quad
@@ -647,7 +647,8 @@ E[Y_{1}(0)\mid X, D = 1]
 <span id="cb7-3"><a href=""></a>    <span class="st">"https://gist.githubusercontent.com/jsr-p/b7c620d0692c4c63c807f5b0882f786a/raw/04e45b7066e4e3d7df55be650407265f2700704c/did2-lecture12.csv"</span></span>
 <span id="cb7-4"><a href=""></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ol start="2" type="1">
-<li>Implement the DML Algorithm for the two-period DID <a href="#/something-is-missing">assuming</a>: CNA, CPT and Overlap.</li>
+<li><p>Implement the DML Algorithm for the two-period DID <a href="#/something-is-missing">assuming</a> CNA, CPT and Overlap. The true ATT equals <span class="math inline">\(2\)</span>.</p></li>
+<li><p>Try using both RandomForest and the linear models for the nuisances. Estimate also the <a href="#/but-why-not-just-ols-on-model-with-covariates">linear model</a> by OLS as a comparison.</p></li>
 </ol>
 <p>You can use the snippet below and the loading function above.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href=""></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -734,7 +735,7 @@ E[Y_{1}(0)\mid X, D = 1]
 <li>If there is heterogeneity across cohorts, they don’t</li>
 </ul></li>
 <li>Again “forbidden comparisons” — see Sun and Abraham (2021)</li>
-<li>Wish: method that allows for heterogeneity in time and cohorts</li>
+<li>Wish: a method that allows for heterogeneity in time and cohorts</li>
 </ul>
 </section>
 <section id="general-theme-in-previous-examples" class="slide level2">
@@ -761,7 +762,7 @@ E[Y_{1}(0)\mid X, D = 1]
 </ul></li>
 <li>Callaway and Sant’Anna 2021 do exactly that
 <ul>
-<li>Note: they don’t do DML but they do provide a Neyman orthogonal score than can be used with DML</li>
+<li>They don’t do DML; but they do provide a Neyman orthogonal score</li>
 </ul></li>
 </ul>
 </section>
