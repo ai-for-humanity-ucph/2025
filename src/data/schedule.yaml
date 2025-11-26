@@ -156,7 +156,7 @@ week47:
     topic: "Econ ML"
     content: "Double ML"
     teachers: "Jonas"
-    material: 
+    material: <a href="../exercises/class-11">Class 11<a/>
 week48:
   - date: "2025-11-26"
     time: "10:00–12:00"
