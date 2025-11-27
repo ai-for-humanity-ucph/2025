@@ -162,7 +162,7 @@ For the curious, the original DML paper:
 
 #### Week 48
 
-- [Causal ML Book](#causalmlbook)
+- [Causal ML Book](#causalmlbook) chapter 16
 
 #### Week 49
 Identifying human prediction mistakes
