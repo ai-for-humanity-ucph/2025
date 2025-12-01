@@ -164,7 +164,17 @@ For the curious, the original DML paper:
 
 - [Causal ML Book](#causalmlbook)
 
-### Outro
+#### Week 49
+Identifying human prediction mistakes
+[Rambachan, A. (2024) ‘Identifying prediction mistakes in observational data’, *The Quarterly Journal of Economics*, 139(3), pp. 1665–1711.](https://doi.org/10.1093/qje/qjae013)
+
+Policy applications of causal ML 
+[Knittel, C.R. and Stolper, S. (2025) ‘Using machine learning to target treatment: The case of household energy use’, *The Economic Journal*, 135(672), pp. 2377–2401.](https://doi.org/10.1093/ej/ueaf028)
+[Goller, D., Lechner, M., Pongratz, T. and Wolff, J. (2025) ‘Active labor market policies for the long-term unemployed: New evidence from causal machine learning’, *Labour Economics*, 94, Article 102729.](https://doi.org/10.1016/j.labeco.2025.102729)
+
+#### Week 50 (outro)
+
+No readings
 
 ## Books
 
